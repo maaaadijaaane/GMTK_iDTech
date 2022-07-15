@@ -13,15 +13,38 @@ public class StateManager : MonoBehaviour
     private string sceneName;
     private Scene currScene;
     private Scene prevScene;
-    private Scene stateManagerScene;
     private GameObject openCanvas;
+
+    // Subscribe different scenes/UI to different events
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject); 
+        GameManager.OnGameStateChanged += GameManagerOnGameStateChanged;
+    }
+
+    void OnDestroy()
+    {
+        GameManager.OnGameStateChanged -= GameManagerOnGameStateChanged;
+    }
+    private void GameManagerOnGameStateChanged(GameState state)
+    {
+        if(state == GameState.MenuScreen)
+        {
+            OpenScene("MainMenu.tscn");
+        }
+        if(state == GameState.PauseScreen || state == GameState.ControlsScreen)
+        {
+            SwitchCanvas();
+        }
+        if(state == GameState.Play)
+        {
+            OpenScene("LevelName.tscn");
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
-
-        stateManagerScene = SceneManager.GetActiveScene();
         currScene = SceneManager.GetActiveScene();
         sceneName = currScene.name;
     }
@@ -32,7 +55,6 @@ public class StateManager : MonoBehaviour
         prevScene = currScene;    
         SceneManager.LoadScene(sceneName);
 
-        stateManagerScene = SceneManager.GetActiveScene();
         currScene = SceneManager.GetActiveScene();
         sceneName = currScene.name;
         Time.timeScale = 1;
@@ -49,7 +71,6 @@ public class StateManager : MonoBehaviour
 
         SceneManager.LoadScene("StartUI"); // Put Main Menu scene here
 
-        stateManagerScene = SceneManager.GetActiveScene();
         currScene = SceneManager.GetActiveScene();
         sceneName = currScene.name;
     }
