@@ -16,21 +16,23 @@ public class StateManager : MonoBehaviour
     private GameObject openCanvas;
 
     // Subscribe different scenes/UI to different events
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     void Awake()
     {
+        //GameManager.OnGameStateChanged += GameManagerOnGameStateChanged;
         DontDestroyOnLoad(gameObject); 
-        GameManager.OnGameStateChanged += GameManagerOnGameStateChanged;
     }
 
     void OnDestroy()
     {
-        GameManager.OnGameStateChanged -= GameManagerOnGameStateChanged;
+        //GameManager.OnGameStateChanged -= GameManagerOnGameStateChanged;
     }
+
     private void GameManagerOnGameStateChanged(GameState state)
     {
         if(state == GameState.MenuScreen)
         {
-            OpenScene("MainMenu.tscn");
+            //OpenScene("MainMenu.tscn");
         }
         if(state == GameState.PauseScreen || state == GameState.ControlsScreen)
         {
@@ -38,7 +40,12 @@ public class StateManager : MonoBehaviour
         }
         if(state == GameState.Play)
         {
-            OpenScene("LevelName.tscn");
+            //OpenScene("LevelName.tscn");
+        }
+        if(state == GameState.Building)
+        {
+            Debug.Log("Entered GameManagerOnGameStateChanged -> Building");
+            MouseManager.block.Moving();
         }
     }
 
@@ -64,12 +71,12 @@ public class StateManager : MonoBehaviour
     {
         if(GameObject.Find("PauseController") != null)
         {
-            pause = GameObject.Find("PauseController");
+            //pause = GameObject.Find("PauseController");
             //pauseController = pause.GetComponent<PauseController>();
             //pauseController.Unpause();
         }
 
-        SceneManager.LoadScene("StartUI"); // Put Main Menu scene here
+        //SceneManager.LoadScene("StartUI"); // Put Main Menu scene here
 
         currScene = SceneManager.GetActiveScene();
         sceneName = currScene.name;
