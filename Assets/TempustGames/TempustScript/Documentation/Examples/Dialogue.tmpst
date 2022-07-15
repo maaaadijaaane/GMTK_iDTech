@@ -1,0 +1,12 @@
+ask["Person"] "How are you today?"
+{
+    opt "Good"
+    {
+        say "That's good to hear!"
+    }
+    opt "Not Good"
+    {
+        say "I'm sorry to hear that..."
+    }
+}
+end

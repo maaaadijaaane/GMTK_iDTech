@@ -1,0 +1,8 @@
+say["Old Man"] "This is how you make simple text"
+give apple 10
+give money -10 //Pay money
+setpos plr to x:plr+1 //See Object Coordinates
+disable obj
+closebox
+goto closing
+end

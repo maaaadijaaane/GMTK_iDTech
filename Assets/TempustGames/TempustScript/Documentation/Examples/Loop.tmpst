@@ -1,0 +1,17 @@
+region question_loop
+say["Sword Master"] "The world needs you!"
+ask "Do you have what it takes?"
+{
+    opt "Yes!" 
+    {
+        say "I commend your confidence. There is a sword behind this door. Please take it on your journey."
+        setflag global sword_door_unlocked true
+        end
+    }
+    opt "I don't know"
+    {
+        say "You must be confident if you are to be the hero we need."
+        goto question_loop
+    }
+}
+endregion
