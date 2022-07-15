@@ -1,43 +1,59 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public GameState State;
+    public static GameState State;
     public static StateManager Scene;
     public static event Action<GameState> OnGameStateChanged;
-    public static event Action Building;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     void Awake()
     {
         Instance = this;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        UpdateGameState(GameState.MenuScreen);
+        DontDestroyOnLoad(Instance);
     }
 
-    void UpdateGameState(GameState newState)
+    void Start()
+    {
+        //UpdateGameState(GameState.MenuScreen);
+    }
+    
+    public static void TriggerEvent(GameState newState)
     {
         State = newState;
         switch(newState){
             case GameState.MenuScreen:
-                Scene.OpenScene("MainMenu.tscn");
+                //Scene.OpenScene("MainMenu.tscn");
                 break;
             case GameState.PauseScreen:
-                Scene.SwitchCanvas();
+                //Scene.SwitchCanvas();
                 break;
             case GameState.ControlsScreen:
-                Scene.SwitchCanvas();
+                //Scene.SwitchCanvas();
                 break;
             case GameState.Play:
                 // Scene.OpenScene("MainMenu.tscn"); // Add currentLevel here
                 break;
+            case GameState.Building:
+                BuildingTower();
+                break;
         }
         OnGameStateChanged?.Invoke(newState);
+    }
+
+    static async void BuildingTower()
+    {
+        while(MouseManager.dragging == true)
+        {
+            MouseManager.block.Moving();
+            //Debug.Log("Async function");
+            await Task.Yield();
+        }
     }
 }
 
@@ -45,5 +61,6 @@ public enum GameState{
     MenuScreen,
     PauseScreen,
     ControlsScreen,
-    Play
+    Play,
+    Building
 }

@@ -5,34 +5,23 @@ using UnityEngine.InputSystem;
 
 public class MouseManager : MonoBehaviour
 {
-    private bool dragging = false;
-    private Transform block;
-    private Rigidbody rb;
+    public static MouseManager Instance;
+    public static bool dragging = false;
     private int LayerDraggable;
-// Start is called before the first frame update
+    public static MovableBlock block;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    void Awake()
+    {
+        Instance = this;
+        DontDestroyOnLoad(Instance);
+    }
+    // Start is called before the first frame update
     void Start()
     {
         LayerDraggable = LayerMask.NameToLayer("Draggable");
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // Create event to do this on object instead
-        if(dragging == true)
-        {
-            Vector3 mousePos = Mouse.current.position.ReadValue(); 
-            mousePos.z = 10f;
-            Vector3 mouse = Camera.main.ScreenToWorldPoint(mousePos);
-            block.position = new Vector3(mouse.x, mouse.y, 0.0f);
-            if(Mouse.current.leftButton.wasReleasedThisFrame)
-            {
-                this.OnRelease();
-                dragging = false;
-            }
-        }
-    }
-
+    
     public void OnClick()
     {
 
@@ -40,6 +29,7 @@ public class MouseManager : MonoBehaviour
 
     public void OnDragClick()
     {
+        Debug.Log("Entered OnDragClick -> MouseManager");
         if(dragging == false)
         {
             RaycastHit hit; 
@@ -50,17 +40,17 @@ public class MouseManager : MonoBehaviour
             {
                 if(hit.transform.gameObject.layer == LayerDraggable)
                 {
-                    Debug.Log("You selected the " + hit.transform.name); // ensure you picked right object
                     dragging = true;
-                    block = hit.transform;
-                    rb = hit.rigidbody;
+                    MovableBlock movingBlock = hit.collider.GetComponent<MovableBlock>();
+                    block = movingBlock;
+                    //GameManager.Building += block.Moving;
+                    //GameManager.UpdateGameState(GameState.Building);
+                    GameManager.TriggerEvent(GameState.Building);
+                    //GameManager.currentGameState = GameState.Building;
                 }
             }
         }
     }
-    public void OnRelease()
-    {
-        rb.isKinematic = false;
-    }
+
 
 }
