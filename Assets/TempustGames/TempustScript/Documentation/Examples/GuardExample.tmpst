@@ -1,0 +1,22 @@
+def block
+
+region init
+if checkflag local moved
+{
+    setpos to z:obj+0.5
+    disable block
+}
+endregion
+
+if checkflag local moved
+{
+    say["Guard"] "I wish you luck!"
+    end
+}
+
+say["Guard"] "You have a sword? You should be safe out there."
+setflag local moved true
+walk to z:obj+0.5
+disable block
+say "I wish you luck!"
+end

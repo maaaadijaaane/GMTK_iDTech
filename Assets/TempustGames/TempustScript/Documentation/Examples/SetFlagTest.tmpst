@@ -1,0 +1,50 @@
+if checkflag local flag
+{
+    say "local flag is true"
+}
+else
+{
+    say "local flag is false"
+}
+if checkflag global global_test
+{
+    say "global_test is true"
+}
+else
+{
+    say "global_test is false"
+}
+
+ask "Which flag would you like to set?"
+{
+    opt "global"
+    {
+        ask "What value?"
+        {
+            opt "true"
+            {
+                setflag global global_test true
+            }
+            opt "false"
+            {
+                setflag global global_test false
+            }
+        }
+    }
+    opt "local"
+    {
+        ask "What value?"
+        {
+            opt "true"
+            {
+                setflag local flag true
+            }
+            opt "false"
+            {
+                setflag local flag false
+            }
+        }
+    }
+}
+closebox
+end

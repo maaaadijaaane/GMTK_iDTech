@@ -1,0 +1,37 @@
+if not checkflag global finished_tutorial
+{
+    
+}
+
+if checkflag local met
+{
+
+}
+else
+{
+
+}
+
+ask["Old Man"] "How are you doing?"
+{
+    opt "Alright"
+    {
+
+    }
+    opt "Not good"
+    {
+
+    }
+    opt "Wonderful"
+    {
+        
+    }
+}
+
+say["Old Man"]
+{
+    "Hey, how are you doing?
+    What do you mean?
+    ...
+    You don't know?"
+}

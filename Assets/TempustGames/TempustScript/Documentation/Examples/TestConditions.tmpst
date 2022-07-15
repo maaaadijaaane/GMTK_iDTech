@@ -1,0 +1,47 @@
+setflag local flag_true true
+setflag local flag_false false
+setflag local flag_test true
+
+if checkflag local flag_true
+{
+    say["Debug"] "flag_true is true!"
+}
+if not checkflag local flag_false
+{
+    say["Debug"] "flag_false is false"
+}
+if checkflag local flag_true and checkflag local flag_true
+{
+    say["Debug"] "flag_true and flag_true is true"
+}
+if checkflag local flag_true or checkflag local flag_false
+{
+    say["Debug"] "flag_true or flag_false is true"
+}
+if checkflag local flag_true and checkflag local flag_false
+{
+    say["Debug"] "This isn't right, flag_true and flag_false is true"
+}
+else
+{
+    say["Debug"] "flag_true and flag_false is false... else block"
+}
+if checkflag local flag_true and not checkflag local flag_false
+{
+    say["Debug"] "flag_true and not flag_false is true!"
+}
+
+if (not checkflag local flag_false and checkflag local flag_test) and checkflag local flag_true
+{
+    say["Debug"] "Passed parentheses test 1!"
+}
+
+if checkflag local flag_true and (checkflag local flag_test or checkflag local flag_false)
+{
+    say["Debug"] "Passed parentheses test 2!"
+}
+
+if not checkinv item
+{
+    say["Debug"] "Does not have item"
+}
