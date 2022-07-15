@@ -36,5 +36,7 @@ public class MovableBlock : MonoBehaviour
     {
         rb.isKinematic = false;
         MouseManager.dragging = false;
+        rb.constraints = RigidbodyConstraints.None;
+        gameObject.layer =  LayerMask.NameToLayer("Default");
     }
 }
