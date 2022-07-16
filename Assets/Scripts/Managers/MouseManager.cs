@@ -5,9 +5,11 @@ using UnityEngine.InputSystem;
 
 public class MouseManager : MonoBehaviour
 {
+    public static BlockFactory generateBlock;
     public static MouseManager Instance;
     public static bool dragging = false;
     private int LayerDraggable;
+    private int LayerGenerate;
     public static MovableBlock block;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
@@ -20,6 +22,7 @@ public class MouseManager : MonoBehaviour
     void Start()
     {
         LayerDraggable = LayerMask.NameToLayer("Draggable");
+        LayerGenerate = LayerMask.NameToLayer("Generate");
     }
 
     public void OnClick()
@@ -37,15 +40,11 @@ public class MouseManager : MonoBehaviour
 
             if (Physics.Raycast (ray,out hit,100.0f)) 
             {
-                if(hit.transform.gameObject.layer == LayerDraggable)
+                if(hit.transform.gameObject.layer == LayerGenerate)
                 {
                     dragging = true;
-                    MovableBlock movingBlock = hit.collider.GetComponent<MovableBlock>();
-                    block = movingBlock;
-                    //GameManager.Building += block.Moving;
-                    //GameManager.UpdateGameState(GameState.Building);
-                    GameManager.TriggerEvent(GameState.Building);
-                    //GameManager.currentGameState = GameState.Building;
+                    generateBlock = hit.collider.GetComponent<BlockFactory>();
+                    GameManager.TriggerEvent(GameState.Generate);
                 }
             }
         }

@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 9201481980282744179}
   - component: {fileID: 9201481980282744180}
   - component: {fileID: 9201481980282744181}
-  - component: {fileID: 9201481980282744182}
   - component: {fileID: 6649908722486856464}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: ToyFactory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 9201481980282744183}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.57, y: 5.61, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -95,7 +94,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9201481980282744183}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -114,20 +113,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 120
+  m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &9201481980282744182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9201481980282744183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82d52ba54f52e3f45a33f73f3daf766a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6649908722486856464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,3 +127,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287b39aa09815d0468deb51b2b286898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  block: {fileID: 2759890835077804558, guid: bc1de58e556590e4ba1fd9fe795ac0a9, type: 3}

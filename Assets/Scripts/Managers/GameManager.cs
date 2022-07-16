@@ -42,6 +42,9 @@ public class GameManager : MonoBehaviour
             case GameState.Building:
                 BuildingTower();
                 break;
+            case GameState.Generate:
+                GenerateBlock();
+                break;
         }
         OnGameStateChanged?.Invoke(newState);
     }
@@ -55,6 +58,15 @@ public class GameManager : MonoBehaviour
             await Task.Yield();
         }
     }
+    static async void GenerateBlock()
+    {
+        MouseManager.generateBlock.AddBlock();
+        //MovableBlock movingBlock = MouseManager.block;
+        MovableBlock movingBlock = BlockFactory.blocks[BlockFactory.blocks.Count - 1].GetComponent<MovableBlock>();
+        MouseManager.block = movingBlock;
+        await Task.Yield();
+        TriggerEvent(GameState.Building);
+    }
 }
 
 public enum GameState{
@@ -62,5 +74,6 @@ public enum GameState{
     PauseScreen,
     ControlsScreen,
     Play,
+    Generate,
     Building
 }
