@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Delete/MenuTesting.unity
+    guid: a3701e916cad1da4fb903317a41de3bb
+  - enabled: 1
+    path: Assets/Scenes/Delete/MouseManagerExample.unity
+    guid: 3e0980ef9a6c0884d8e3455ae24b4439
   m_configObjects: {}
