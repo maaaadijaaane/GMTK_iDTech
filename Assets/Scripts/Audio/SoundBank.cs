@@ -10,10 +10,9 @@ public class SoundBank : ScriptableObject
 {
     public List<AudioClip> blockHits;
 
-    public AudioClip levelBGM;
-    public AudioClip checkpointBase;
-    public AudioClip checkpointStrings;
-    public AudioClip checkpointFlute;
-    public AudioClip checkpointHarp;
-    public AudioClip checkpointSpook;
+    public GameObject levelBGM;
+    public GameObject checkpointBase;
+    public GameObject checkpointFlute;
+    public GameObject checkpointHarp;
+    public GameObject checkpointSpook;
 }

@@ -9,11 +9,13 @@ public class MovableBlock : MonoBehaviour
     private Rigidbody rb;
     public UnityEvent onBlockDropped;
     BoxCollider blockCollider;
+    AudioSource audioSource;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        blockCollider = gameObject.GetComponent<BoxCollider>();
+        blockCollider = GetComponent<BoxCollider>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Moving()
@@ -30,12 +32,13 @@ public class MovableBlock : MonoBehaviour
                 transform.position = new Vector3(mouse.x, mouse.y, 0.0f);
                 if(Mouse.current.leftButton.wasReleasedThisFrame)
                 {
-                    this.Dropped();
+                    Dropped();
                     MouseManager.dragging = false;
                 }
             }
         }
     }
+
     public void Dropped()
     {
         blockCollider.isTrigger = false;
@@ -46,5 +49,19 @@ public class MovableBlock : MonoBehaviour
         gameObject.layer =  LayerMask.NameToLayer("Default");
         MouseManager.block = null;
         onBlockDropped?.Invoke();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (rb.velocity.sqrMagnitude > 0)
+        {
+            PlayCollisionSound();
+        }
+    }
+
+    private void PlayCollisionSound()
+    {
+        List<AudioClip> hitSounds = GameManager.Instance.audioManager.bank.blockHits;
+        audioSource.PlayOneShot(hitSounds[Random.Range(0, hitSounds.Count)], .2f);
     }
 }
