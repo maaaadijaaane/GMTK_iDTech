@@ -15,6 +15,14 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 639736091471594625, guid: 7aeef11016c497240a5192fe15fccf52, type: 3}
+      propertyPath: m_Mass
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 639736091471594625, guid: 7aeef11016c497240a5192fe15fccf52, type: 3}
+      propertyPath: m_Constraints
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 639736091471594629, guid: 7aeef11016c497240a5192fe15fccf52, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -82,21 +90,84 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360c3be52f06efd4ea773d854bb82816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseClickAction:
-    m_Name: Mouse Click
+  moveAction:
+    m_Name: Move
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: de6a31d9-5665-4737-96ab-6fc295172e39
+    m_Id: b6e240e4-d909-4afd-a9f6-96ce3e0bc7ad
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 925f6cac-e950-45f2-8c81-5c4a4d5a94b3
-      m_Path: <Mouse>/leftButton
+    - m_Name: WASD
+      m_Id: 26649184-ce8d-4c23-a64d-883b7d1541e1
+      m_Path: Dpad
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Mouse Click
-      m_Flags: 0
+      m_Action: Move
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 0eb56e07-136e-46f1-a9cc-1a338dcb90a8
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: ;Keyboard&Mouse
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: up
+      m_Id: 428a3988-bcf0-4614-8914-48e6e3191af2
+      m_Path: <Keyboard>/upArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: ;Keyboard&Mouse
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 103db6df-3a2b-416d-b359-9bc42ccfef4a
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: ;Keyboard&Mouse
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: down
+      m_Id: f60d351b-890c-4e4f-b421-4188ba6b214e
+      m_Path: <Keyboard>/downArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: ;Keyboard&Mouse
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: left
+      m_Id: c473c65a-2a7b-46c3-acd3-cf5eec3e5e4b
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: ;Keyboard&Mouse
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 2240e543-d6da-420a-a923-af06b47c5944
+      m_Path: <Keyboard>/leftArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: ;Keyboard&Mouse
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 5bea00b6-4806-4d63-953e-6eee0fb4228d
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: ;Keyboard&Mouse
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 36b76041-ac03-4d01-aa67-f53dd8c66d5b
+      m_Path: <Keyboard>/rightArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: ;Keyboard&Mouse
+      m_Action: Move
+      m_Flags: 8
     m_Flags: 0
-  playerSpeed: 10

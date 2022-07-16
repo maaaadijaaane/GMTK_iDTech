@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6550385896293665150}
   - component: {fileID: 6550385896293665149}
   - component: {fileID: 6550385896293665148}
+  - component: {fileID: 8181794555176511066}
   m_Layer: 0
   m_Name: InputController
   m_TagString: Untagged
@@ -59,7 +60,19 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8181794555176511066}
+        m_TargetAssemblyTypeName: UpdatePlayer, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: cc445434-7e55-465e-9256-e3a0cdacf686
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
@@ -107,22 +120,6 @@ MonoBehaviour:
     m_ActionId: 257b7ca5-d450-40fa-a0dc-3b29659203bb
     m_ActionName: Player/Rotate[/Mouse/rightButton]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6550385896293665148}
-        m_TargetAssemblyTypeName: MouseManager, Assembly-CSharp
-        m_MethodName: OnPause
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 9d483300-8598-4c99-8b8a-e688424e01b1
-    m_ActionName: Player/PauseGame[/Keyboard/escape]
-  - m_PersistentCalls:
       m_Calls: []
     m_ActionId: de35667c-6613-4ed4-9ed6-d1b7a5311aa0
     m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
@@ -162,6 +159,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: aab8b149-1361-4932-b5b8-0b468a401561
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cde4680b-d2b1-4cb9-98b4-22a2d6f19577
+    m_ActionName: Player/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -180,3 +181,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalBlocksAllowed: 5
+  onDragStart:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &8181794555176511066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6550385896293665147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6488a5e77d501543a04bc7577d2abe8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
