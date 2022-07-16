@@ -34,7 +34,7 @@
                 },
                 {
                     "name": "Click",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "269de393-564e-4350-9e49-6f675e8126a3",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -296,7 +296,7 @@
                     "name": "",
                     "id": "c125a6e1-6d75-4172-b296-b3f80ee866b3",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "Hold",
+                    "interactions": "Hold(duration=0.1)",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "DragClick",

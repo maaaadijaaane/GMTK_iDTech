@@ -10,29 +10,30 @@ public class BlockGrid : MonoBehaviour
     [SerializeField] private GameObject gridLine;
     [SerializeField] private float gridWidth;
     [SerializeField] private float gridHeight;
+    [SerializeField] private float allowedOverlap;
 
-    public List<GameObject> gridLines;
+
+    private List<GameObject> gridLines;
+
+    public static BlockGrid currentGrid;
 
     private void Awake()
     {
+        if (currentGrid != null)
+        {
+            Destroy(currentGrid);
+        }
+
+        currentGrid = this;
         gridLines = new List<GameObject>();
-    }
-
-    private void OnEnable()
-    {
         DrawGrid();
-    }
-
-    private void OnDisable()
-    {
-        gridLines.ForEach(line => Destroy(line));
-        gridLines.Clear();
     }
 
     public Vector3 SnapToGrid(Vector3 inCoords)
     {
-        float x = Mathf.Round((inCoords.x - gridSize / 2) / gridSize) + gridSize / 2;
-        float y = Mathf.Round((inCoords.y - gridSize / 2) / gridSize) + gridSize / 2;
+        //Vector3 inCoords = obj.transform.position;
+        float x = Mathf.Clamp(Mathf.Round(inCoords.x / gridSize) * gridSize, -gridWidth / 2, gridWidth / 2);
+        float y = Mathf.Clamp(Mathf.Round(inCoords.y / gridSize) * gridSize, -gridHeight / 2, gridHeight / 2);
 
         return new Vector3(x, y, inCoords.z);
     }

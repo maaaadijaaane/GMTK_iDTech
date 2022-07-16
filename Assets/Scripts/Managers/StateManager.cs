@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class StateManager : MonoBehaviour
 {
+    public static StateManager Instance;
     public GameObject findPause;
     public GameObject findControls;
     GameObject pause;
@@ -19,6 +20,7 @@ public class StateManager : MonoBehaviour
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     void Awake()
     {
+        Instance = this;
         //GameManager.OnGameStateChanged += GameManagerOnGameStateChanged;
         DontDestroyOnLoad(gameObject); 
     }
@@ -52,6 +54,7 @@ public class StateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        findPause = GameObject.Find("PauseMenu");
         currScene = SceneManager.GetActiveScene();
         sceneName = currScene.name;
     }
@@ -85,14 +88,15 @@ public class StateManager : MonoBehaviour
     // Switching between Pause/How to play
     public void SwitchCanvas()
     {
+        Debug.Log("Set active to false");
         if(!findPause.activeSelf)
         {
-            findControls.SetActive(false);
+            //findControls.SetActive(false);
             findPause.SetActive(true);
         }
         else if(findPause.activeSelf)
         {
-            findControls.SetActive(true);
+            //findControls.SetActive(true);
             findPause.SetActive(false);
         }
 

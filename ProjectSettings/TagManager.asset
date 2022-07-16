@@ -45,12 +45,12 @@ TagManager:
   - name: Foreground
     uniqueID: 444778535
     locked: 0
-  - name: Player
+  - name: Mid
     uniqueID: 1688968495
-    locked: 0
-  - name: Ground
-    uniqueID: 755699133
     locked: 0
   - name: Background
     uniqueID: 3626894521
+    locked: 0
+  - name: Ground
+    uniqueID: 755699133
     locked: 0

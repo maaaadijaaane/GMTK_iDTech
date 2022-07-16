@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public static GameState State;
-    public static StateManager Scene;
+    public AudioManager audioManager;
     public static event Action<GameState> OnGameStateChanged;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
@@ -31,7 +31,8 @@ public class GameManager : MonoBehaviour
                 //Scene.OpenScene("MainMenu.tscn");
                 break;
             case GameState.PauseScreen:
-                //Scene.SwitchCanvas();
+                Debug.Log("GameManager");
+                StateManager.Instance.SwitchCanvas();
                 break;
             case GameState.ControlsScreen:
                 //Scene.SwitchCanvas();
@@ -64,6 +65,11 @@ public class GameManager : MonoBehaviour
         //MovableBlock movingBlock = MouseManager.block;
         MovableBlock movingBlock = BlockFactory.blocks[BlockFactory.blocks.Count - 1].GetComponent<MovableBlock>();
         MouseManager.block = movingBlock;
+
+        //Enable and disable the grid
+        BlockGrid.currentGrid.gameObject.SetActive(true);
+        movingBlock.onBlockDropped.AddListener(() => BlockGrid.currentGrid.gameObject.SetActive(false));
+
         await Task.Yield();
         TriggerEvent(GameState.Building);
     }

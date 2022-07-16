@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class MouseManager : MonoBehaviour
 {
+    public int totalBlocksAllowed = 5;
     public static BlockFactory generateBlock;
     public static MouseManager Instance;
     public static bool dragging = false;
@@ -45,6 +46,7 @@ public class MouseManager : MonoBehaviour
                     dragging = true;
                     generateBlock = hit.collider.GetComponent<BlockFactory>();
                     GameManager.TriggerEvent(GameState.Generate);
+                    totalBlocksAllowed -= 1;
                 }
             }
         }
