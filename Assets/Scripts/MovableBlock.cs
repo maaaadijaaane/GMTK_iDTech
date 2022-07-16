@@ -42,6 +42,7 @@ public class MovableBlock : MonoBehaviour
         rb.isKinematic = false;
         MouseManager.dragging = false;
         rb.constraints = RigidbodyConstraints.None;
+        rb.constraints = RigidbodyConstraints.FreezePositionZ;
         gameObject.layer =  LayerMask.NameToLayer("Default");
         MouseManager.block = null;
         onBlockDropped?.Invoke();
