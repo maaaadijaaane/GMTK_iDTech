@@ -32,8 +32,8 @@ public class BlockGrid : MonoBehaviour
     public Vector3 SnapToGrid(Vector3 inCoords)
     {
         //Vector3 inCoords = obj.transform.position;
-        float x = Mathf.Round(inCoords.x / gridSize) * gridSize;
-        float y = Mathf.Round(inCoords.y / gridSize) * gridSize;
+        float x = Mathf.Clamp(Mathf.Round(inCoords.x / gridSize) * gridSize, -gridWidth / 2, gridWidth / 2);
+        float y = Mathf.Clamp(Mathf.Round(inCoords.y / gridSize) * gridSize, -gridHeight / 2, gridHeight / 2);
 
         return new Vector3(x, y, inCoords.z);
     }
