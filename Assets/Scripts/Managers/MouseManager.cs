@@ -72,9 +72,7 @@ public class MouseManager : MonoBehaviour
     {
         if(block != null)
         {
-            Vector3 rotate = new Vector3(0,0,90);
-            block.transform.Rotate(rotate);
-            block.onRotate?.Invoke;
+            block.Rotate();
         }
     }
 }

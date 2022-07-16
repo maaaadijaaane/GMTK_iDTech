@@ -53,6 +53,13 @@ public class MovableBlock : MonoBehaviour
         MouseManager.block = null;
     }
 
+    public void Rotate()
+    {
+        Vector3 rotate = new Vector3(0, 0, 90);
+        transform.Rotate(rotate);
+        onBlockRotate?.Invoke();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (rb.velocity.sqrMagnitude > 0)
