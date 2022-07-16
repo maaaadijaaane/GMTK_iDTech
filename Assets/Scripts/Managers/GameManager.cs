@@ -31,7 +31,8 @@ public class GameManager : MonoBehaviour
                 //Scene.OpenScene("MainMenu.tscn");
                 break;
             case GameState.PauseScreen:
-                PauseUI.PauseGame();
+                Debug.Log("GameManager");
+                StateManager.Instance.SwitchCanvas();
                 break;
             case GameState.ControlsScreen:
                 //Scene.SwitchCanvas();
