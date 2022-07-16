@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalBlocks: 5
-  block: {fileID: 7576150884208508702, guid: fe4a50af53f84884ca29d40b7c74f330, type: 3}
+  block: {fileID: 9193853102063227722, guid: fc13f5d6a353bbb4a94cd806742118e8, type: 3}
   amountLabel: {fileID: 1121858997}
 --- !u!114 &207387895
 MonoBehaviour:
@@ -914,7 +914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalBlocks: 5
-  block: {fileID: 4555894828786555855, guid: 8987d1fc717b50e4387baac0402c7caf, type: 3}
+  block: {fileID: 837093946030433210, guid: 339bb1dc46c615d46898807d84abfa15, type: 3}
   amountLabel: {fileID: 1364052381}
 --- !u!1 &785871250
 GameObject:
@@ -2938,7 +2938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalBlocks: 5
-  block: {fileID: 4649981933882885910, guid: 453bc8079c04ba3449c0952e4cf6b353, type: 3}
+  block: {fileID: 1430017948964316747, guid: 80ed3c41b0c8e284a9cea57706592b6f, type: 3}
   amountLabel: {fileID: 442017081}
 --- !u!114 &6276425196054460804
 MonoBehaviour:
@@ -2953,7 +2953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalBlocks: 5
-  block: {fileID: 7864163325348678588, guid: 5184167def50fb741b0681184b3f5871, type: 3}
+  block: {fileID: 7818784889643416182, guid: 2f57938da5f58f144b7b3b009e0a6e8f, type: 3}
   amountLabel: {fileID: 1159363021}
 --- !u!1 &8422105868074737635
 GameObject:

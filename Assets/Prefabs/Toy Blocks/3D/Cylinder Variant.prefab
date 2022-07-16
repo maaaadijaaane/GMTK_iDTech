@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7947376011479559024, guid: 2dcd7b0bdf27b4f48a783d6c175d39f4, type: 3}
       propertyPath: m_Name
-      value: Cylinder
+      value: Cylinder Variant
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1776014235180079207, guid: 2dcd7b0bdf27b4f48a783d6c175d39f4, type: 3}
@@ -82,6 +82,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: 62a9a509ec6e69e4cb82de6071cec3f2, type: 3}
