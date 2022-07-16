@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class MouseManager : MonoBehaviour
@@ -39,13 +40,21 @@ public class MouseManager : MonoBehaviour
         {
             RaycastHit hit; 
             Vector3 mousePos = Mouse.current.position.ReadValue(); 
-            Ray ray = Camera.main.ScreenPointToRay(mousePos); 
+            Ray ray = Camera.main.ScreenPointToRay(mousePos);
 
-            if (Physics.Raycast (ray,out hit,100.0f)) 
+            PointerEventData data = new PointerEventData(EventSystem.current);
+            data.position = mousePos;
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(data, results);
+
+            //if (Physics.Raycast(ray,out hit,100.0f)) 
+            if (results.Count > 0)
             {
-                if(hit.transform.gameObject.layer == LayerGenerate)
+                if(results[0].gameObject.layer == LayerGenerate)
                 {
-                    generateBlock = hit.collider.GetComponent<BlockFactory>();
+                    generateBlock = results[0].gameObject.GetComponent<BlockFactory>();
+                    if (generateBlock == null)
+                        generateBlock = results[0].gameObject.GetComponentInParent<BlockFactory>();
                     GameManager.TriggerEvent(GameState.Generate);
                     totalBlocksAllowed -= 1;
                 }
@@ -65,6 +74,7 @@ public class MouseManager : MonoBehaviour
         {
             Vector3 rotate = new Vector3(0,0,90);
             block.transform.Rotate(rotate);
+            block.onRotate?.Invoke;
         }
     }
 }

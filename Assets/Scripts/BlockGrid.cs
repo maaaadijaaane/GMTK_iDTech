@@ -11,8 +11,8 @@ public class BlockGrid : MonoBehaviour
     [SerializeField] private float gridWidth;
     [SerializeField] private float gridHeight;
     [SerializeField] private float allowedOverlap;
-
-
+    [SerializeField] private Transform linesParent;
+    
     private List<GameObject> gridLines;
 
     public static BlockGrid currentGrid;
@@ -29,6 +29,11 @@ public class BlockGrid : MonoBehaviour
         DrawGrid();
     }
 
+    public void ShowGrid(bool showGrid)
+    {
+        linesParent.gameObject.SetActive(showGrid);
+    }
+
     public Vector3 SnapToGrid(Vector3 inCoords)
     {
         //Vector3 inCoords = obj.transform.position;
@@ -42,7 +47,7 @@ public class BlockGrid : MonoBehaviour
     {
         for (float i = -gridWidth / 2; i < gridWidth / 2; i+= gridSize)
         {
-            GameObject newLine = Instantiate(gridLine, transform);
+            GameObject newLine = Instantiate(gridLine, linesParent);
             newLine.transform.position = new Vector3(i, 0, gridOverlayZCoord);
             newLine.transform.localScale = new Vector3(1, gridHeight, 1);
             gridLines.Add(newLine);
@@ -50,7 +55,7 @@ public class BlockGrid : MonoBehaviour
 
         for (float i = -gridHeight / 2; i < gridHeight / 2; i += gridSize)
         {
-            GameObject newLine = Instantiate(gridLine, transform);
+            GameObject newLine = Instantiate(gridLine, linesParent);
             newLine.transform.Rotate(new Vector3(0, 0, 90));
             newLine.transform.position = new Vector3(0, i, gridOverlayZCoord);
             newLine.transform.localScale = new Vector3(1, gridWidth, 1);
