@@ -10,12 +10,27 @@ public class BlockGrid : MonoBehaviour
     [SerializeField] private GameObject gridLine;
     [SerializeField] private float gridWidth;
     [SerializeField] private float gridHeight;
+    [SerializeField] private float allowedOverlap;
 
-    public List<GameObject> gridLines;
+
+    private List<GameObject> gridLines;
+    private List<Collider> gridObjects;
+    private Collider activeObj;
+
+    public static BlockGrid currentGrid;
+
+    public bool[][] gridData;
 
     private void Awake()
     {
+        if (currentGrid != null)
+        {
+            Destroy(currentGrid);
+        }
+
+        currentGrid = this;
         gridLines = new List<GameObject>();
+        gridObjects = new List<Collider>();
     }
 
     private void OnEnable()
@@ -29,12 +44,46 @@ public class BlockGrid : MonoBehaviour
         gridLines.Clear();
     }
 
+    private void Update()
+    {
+
+    }
+
+    public void SetActiveObject(GameObject obj)
+    {
+        activeObj = obj.GetComponent<Collider>(); 
+    }
+
     public Vector3 SnapToGrid(Vector3 inCoords)
     {
-        float x = Mathf.Round((inCoords.x - gridSize / 2) / gridSize) + gridSize / 2;
-        float y = Mathf.Round((inCoords.y - gridSize / 2) / gridSize) + gridSize / 2;
+        //Vector3 inCoords = obj.transform.position;
+        float x = Mathf.Round((inCoords.x) / gridSize) + gridSize / 2;
+        float y = Mathf.Round((inCoords.y) / gridSize) + gridSize / 2;
 
         return new Vector3(x, y, inCoords.z);
+    }
+
+    /// <summary>
+    /// Checks if the current selected grid object can be placed
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <returns></returns>
+    public bool IsValidLocation(Collider col)
+    {
+        foreach (Collider gridObj in gridObjects)
+        {
+            float dist;
+            if (!Physics.ComputePenetration(col, col.transform.position, col.transform.rotation, gridObj, gridObj.transform.position, gridObj.transform.rotation, out _, out dist) || dist <= allowedOverlap)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void AddObjectToGrid(GameObject obj)
+    {
+        gridObjects.Add(obj.GetComponent<Collider>());
     }
 
     public void DrawGrid()
