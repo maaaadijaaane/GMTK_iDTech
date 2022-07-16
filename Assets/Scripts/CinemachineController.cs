@@ -2,6 +2,7 @@ using UnityEngine;
 using Cinemachine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(MouseManager))]
 public class CinemachineController : MonoBehaviour
 {
     [SerializeField]
@@ -17,21 +18,14 @@ public class CinemachineController : MonoBehaviour
     {
 
     }
-    public void OnClick()
+    public void OnClickDrag()
     {
         zoomOutCamera.enabled = true;
         
-
-        //Temporary code until I can get the MouseManager's block target.
-        RaycastHit hit;
-        Vector3 mousePos = Mouse.current.position.ReadValue();
-        Ray ray = Camera.main.ScreenPointToRay(mousePos);
-
-        if (Physics.Raycast(ray, out hit, 100.0f))
+        if (MouseManager.block != null)
         {
-            zoomOutCamera.Follow = hit.collider.transform;
+            zoomOutCamera.Follow = MouseManager.block.transform;
         }
-        //End Temporary Code Block
 
         //On Release, camera should return to main character.
     }
