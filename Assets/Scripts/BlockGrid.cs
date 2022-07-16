@@ -14,12 +14,8 @@ public class BlockGrid : MonoBehaviour
 
 
     private List<GameObject> gridLines;
-    private List<Collider> gridObjects;
-    private Collider activeObj;
 
     public static BlockGrid currentGrid;
-
-    public bool[][] gridData;
 
     private void Awake()
     {
@@ -30,60 +26,16 @@ public class BlockGrid : MonoBehaviour
 
         currentGrid = this;
         gridLines = new List<GameObject>();
-        gridObjects = new List<Collider>();
-    }
-
-    private void OnEnable()
-    {
         DrawGrid();
-    }
-
-    private void OnDisable()
-    {
-        gridLines.ForEach(line => Destroy(line));
-        gridLines.Clear();
-    }
-
-    private void Update()
-    {
-
-    }
-
-    public void SetActiveObject(GameObject obj)
-    {
-        activeObj = obj.GetComponent<Collider>(); 
     }
 
     public Vector3 SnapToGrid(Vector3 inCoords)
     {
         //Vector3 inCoords = obj.transform.position;
-        float x = Mathf.Round((inCoords.x) / gridSize) + gridSize / 2;
-        float y = Mathf.Round((inCoords.y) / gridSize) + gridSize / 2;
+        float x = Mathf.Round(inCoords.x / gridSize) * gridSize;
+        float y = Mathf.Round(inCoords.y / gridSize) * gridSize;
 
         return new Vector3(x, y, inCoords.z);
-    }
-
-    /// <summary>
-    /// Checks if the current selected grid object can be placed
-    /// </summary>
-    /// <param name="obj"></param>
-    /// <returns></returns>
-    public bool IsValidLocation(Collider col)
-    {
-        foreach (Collider gridObj in gridObjects)
-        {
-            float dist;
-            if (!Physics.ComputePenetration(col, col.transform.position, col.transform.rotation, gridObj, gridObj.transform.position, gridObj.transform.rotation, out _, out dist) || dist <= allowedOverlap)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public void AddObjectToGrid(GameObject obj)
-    {
-        gridObjects.Add(obj.GetComponent<Collider>());
     }
 
     public void DrawGrid()

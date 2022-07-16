@@ -64,6 +64,11 @@ public class GameManager : MonoBehaviour
         //MovableBlock movingBlock = MouseManager.block;
         MovableBlock movingBlock = BlockFactory.blocks[BlockFactory.blocks.Count - 1].GetComponent<MovableBlock>();
         MouseManager.block = movingBlock;
+
+        //Enable and disable the grid
+        BlockGrid.currentGrid.gameObject.SetActive(true);
+        movingBlock.onBlockDropped.AddListener(() => BlockGrid.currentGrid.gameObject.SetActive(false));
+
         await Task.Yield();
         TriggerEvent(GameState.Building);
     }

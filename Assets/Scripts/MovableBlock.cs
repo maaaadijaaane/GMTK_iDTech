@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 public class MovableBlock : MonoBehaviour
 {
     private Rigidbody rb;
+    public UnityEvent onBlockDropped;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -38,5 +40,6 @@ public class MovableBlock : MonoBehaviour
         rb.constraints = RigidbodyConstraints.None;
         gameObject.layer =  LayerMask.NameToLayer("Default");
         MouseManager.block = null;
+        onBlockDropped?.Invoke();
     }
 }
