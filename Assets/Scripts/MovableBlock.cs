@@ -8,14 +8,17 @@ public class MovableBlock : MonoBehaviour
 {
     private Rigidbody rb;
     public UnityEvent onBlockDropped;
+    BoxCollider blockCollider;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        blockCollider = gameObject.GetComponent<BoxCollider>();
     }
 
     public void Moving()
     {
+        blockCollider.isTrigger = true;
         if(MouseManager.dragging == true)
         {
             // Create event to do this on object instead
@@ -35,6 +38,7 @@ public class MovableBlock : MonoBehaviour
     }
     public void Dropped()
     {
+        blockCollider.isTrigger = false;
         rb.isKinematic = false;
         MouseManager.dragging = false;
         rb.constraints = RigidbodyConstraints.None;
