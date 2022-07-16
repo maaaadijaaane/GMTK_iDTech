@@ -9,14 +9,14 @@ public class MovableBlock : MonoBehaviour
     private Rigidbody rb;
     public UnityEvent onBlockDropped;
     public UnityEvent onBlockRotate;
-    BoxCollider blockCollider;
+    public Collider blockCollider;
     AudioSource audioSource;
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        blockCollider = GetComponent<BoxCollider>();
+        blockCollider = GetComponent<Collider>();
         audioSource = GetComponent<AudioSource>();
     }
 
