@@ -127,4 +127,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287b39aa09815d0468deb51b2b286898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalBlocks: 5
   block: {fileID: 2759890835077804558, guid: bc1de58e556590e4ba1fd9fe795ac0a9, type: 3}

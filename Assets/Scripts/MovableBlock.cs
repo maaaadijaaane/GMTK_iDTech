@@ -48,8 +48,8 @@ public class MovableBlock : MonoBehaviour
         rb.constraints = RigidbodyConstraints.None;
         rb.constraints = RigidbodyConstraints.FreezePositionZ;
         gameObject.layer =  LayerMask.NameToLayer("Default");
-        MouseManager.block = null;
         onBlockDropped?.Invoke();
+        MouseManager.block = null;
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -7,24 +7,36 @@ public class CinemachineController : MonoBehaviour
 {
     [SerializeField]
     private CinemachineVirtualCamera zoomOutCamera;
+    private CinemachineTargetGroup playerGroup;
+
     // Start is called before the first frame update
     void Start()
     {
+        if(zoomOutCamera == null)
+        {
+            zoomOutCamera = GameObject.Find("ZoomOutCam").GetComponent<CinemachineVirtualCamera>();
+            playerGroup = zoomOutCamera.Follow.transform.GetComponent<CinemachineTargetGroup>();
+            zoomOutCamera.enabled = false;
+
+            Debug.LogWarning("A cinemachine camera was not assigned. The first Virtual Camera named ZoomOutCam has been used instead. " + zoomOutCamera.name);
+        }
+    }
+
+    public void DragEnd()
+    {
         zoomOutCamera.enabled = false;
+        playerGroup.m_Targets[1].target = null;
+        MouseManager.block.onBlockDropped.RemoveListener(DragEnd);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnDragClick()
     {
-
-    }
-    public void OnClickDrag()
-    {
-        zoomOutCamera.enabled = true;
         
         if (MouseManager.block != null)
         {
-            zoomOutCamera.Follow = MouseManager.block.transform;
+            zoomOutCamera.enabled = true;
+            playerGroup.m_Targets[1].target = MouseManager.block.transform;
+            MouseManager.block.onBlockDropped.AddListener(DragEnd);
         }
 
         //On Release, camera should return to main character.
