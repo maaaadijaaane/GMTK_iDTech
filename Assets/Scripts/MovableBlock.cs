@@ -11,6 +11,8 @@ public class MovableBlock : MonoBehaviour
     public UnityEvent onBlockRotate;
     public Collider blockCollider;
     AudioSource audioSource;
+    private bool droppable = true;
+    private int LayerGround;
 
 
     void Start()
@@ -18,6 +20,9 @@ public class MovableBlock : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         blockCollider = GetComponent<Collider>();
         audioSource = GetComponent<AudioSource>();
+        LayerGround = LayerMask.NameToLayer("Ground");
+        gameObject.layer = LayerGround;
+        gameObject.tag = "Ground";
     }
 
     public void Moving()
@@ -32,7 +37,7 @@ public class MovableBlock : MonoBehaviour
                 mousePos.z = 10f;
                 Vector3 mouse = BlockGrid.currentGrid.SnapToGrid(Camera.main.ScreenToWorldPoint(mousePos));
                 transform.position = new Vector3(mouse.x, mouse.y, 0.0f);
-                if(Mouse.current.leftButton.wasReleasedThisFrame)
+                if(Mouse.current.leftButton.wasReleasedThisFrame && droppable)
                 {
                     Dropped();
                     MouseManager.dragging = false;
@@ -48,7 +53,6 @@ public class MovableBlock : MonoBehaviour
         MouseManager.dragging = false;
         rb.constraints = RigidbodyConstraints.None;
         rb.constraints = RigidbodyConstraints.FreezePositionZ;
-        gameObject.layer =  LayerMask.NameToLayer("Default");
         onBlockDropped?.Invoke();
         MouseManager.block = null;
     }
@@ -66,11 +70,29 @@ public class MovableBlock : MonoBehaviour
         {
             PlayCollisionSound();
         }
+        if(collision.gameObject.layer == LayerGround)
+        {
+            rb.mass = 5;
+        }
     }
 
     private void PlayCollisionSound()
     {
         List<AudioClip> hitSounds = GameManager.Instance.audioManager.bank.blockHits;
         audioSource.PlayOneShot(hitSounds[Random.Range(0, hitSounds.Count)], .2f);
+    }
+    private void OnTriggerEnter(Collider collider)
+    {
+        if(collider.gameObject.layer == LayerGround)
+        {
+            droppable = false;
+        }
+    }
+    private void OnTriggerExit(Collider collider)
+    {
+        if(collider.gameObject.layer == LayerGround)
+        {
+            droppable = true;
+        }
     }
 }
