@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
         //MovableBlock movingBlock = MouseManager.block;
         MovableBlock movingBlock = BlockFactory.blocks[BlockFactory.blocks.Count - 1].GetComponent<MovableBlock>();
         MouseManager.block = movingBlock;
+        MouseManager.Instance.SetDragging(movingBlock);
 
         //Enable and disable the grid
         BlockGrid.currentGrid.gameObject.SetActive(true);

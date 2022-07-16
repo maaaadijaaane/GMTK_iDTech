@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class MouseManager : MonoBehaviour
@@ -12,6 +13,7 @@ public class MouseManager : MonoBehaviour
     private int LayerDraggable;
     private int LayerGenerate;
     public static MovableBlock block;
+    public UnityEvent<GameObject> onDragStart;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     void Awake()
@@ -43,13 +45,18 @@ public class MouseManager : MonoBehaviour
             {
                 if(hit.transform.gameObject.layer == LayerGenerate)
                 {
-                    dragging = true;
                     generateBlock = hit.collider.GetComponent<BlockFactory>();
                     GameManager.TriggerEvent(GameState.Generate);
                     totalBlocksAllowed -= 1;
                 }
             }
         }
+    }
+
+    public void SetDragging(MovableBlock block)
+    {
+        dragging = true;
+        onDragStart?.Invoke(block.gameObject);
     }
 
     public void OnRotate()

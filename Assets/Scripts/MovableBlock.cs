@@ -11,6 +11,7 @@ public class MovableBlock : MonoBehaviour
     BoxCollider blockCollider;
     AudioSource audioSource;
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
