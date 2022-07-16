@@ -60,4 +60,9 @@ public class MouseManager : MonoBehaviour
             block.transform.Rotate(rotate);
         }
     }
+
+    public void OnPause()
+    {
+        GameManager.TriggerEvent(GameState.PauseScreen);
+    }
 }
