@@ -16,7 +16,6 @@ public class MovableBlock : MonoBehaviour
     {
         if(MouseManager.dragging == true)
         {
-            Debug.Log("Entered Moving object");
             // Create event to do this on object instead
             if(MouseManager.dragging == true)
             {
@@ -38,5 +37,6 @@ public class MovableBlock : MonoBehaviour
         MouseManager.dragging = false;
         rb.constraints = RigidbodyConstraints.None;
         gameObject.layer =  LayerMask.NameToLayer("Default");
+        MouseManager.block = null;
     }
 }

@@ -21,7 +21,7 @@ public class MouseManager : MonoBehaviour
     {
         LayerDraggable = LayerMask.NameToLayer("Draggable");
     }
-    
+
     public void OnClick()
     {
 
@@ -29,7 +29,6 @@ public class MouseManager : MonoBehaviour
 
     public void OnDragClick()
     {
-        Debug.Log("Entered OnDragClick -> MouseManager");
         if(dragging == false)
         {
             RaycastHit hit; 
@@ -52,5 +51,12 @@ public class MouseManager : MonoBehaviour
         }
     }
 
-
+    public void OnRotate()
+    {
+        if(block != null)
+        {
+            Vector3 rotate = new Vector3(0,0,90);
+            block.transform.Rotate(rotate);
+        }
+    }
 }
