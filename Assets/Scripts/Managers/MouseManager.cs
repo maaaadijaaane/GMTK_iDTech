@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TempustScript;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -25,8 +26,10 @@ public class MouseManager : MonoBehaviour
         LayerGenerate = LayerMask.NameToLayer("Generate");
     }
 
-    public void OnClick()
+    public void OnClick(InputAction.CallbackContext ctx)
     {
+        if (!ctx.performed) return;
+
         RaycastHit hit;
         Vector3 mousePos = Mouse.current.position.ReadValue();
         Ray ray = Camera.main.ScreenPointToRay(mousePos);
@@ -38,6 +41,11 @@ public class MouseManager : MonoBehaviour
                 MouseInteractObject obj = hit.collider.GetComponent<MouseInteractObject>();
                 obj.ClickInteract(PlayerController.player.gameObject);
             }
+        }
+
+        if (TextboxController.singleton.isOpen)
+        {
+            TextboxController.singleton.Continue();
         }
     }
 

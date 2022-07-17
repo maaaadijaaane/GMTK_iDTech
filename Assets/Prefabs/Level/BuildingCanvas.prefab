@@ -302,7 +302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6286826469785222002
 RectTransform:
   m_ObjectHideFlags: 0
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287b39aa09815d0468deb51b2b286898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalBlocks: 5
+  totalBlocks: 0
   block: {fileID: 1227365159498989728, guid: 29e6eaf75a4be3f4bb2a94bf8187f4f7, type: 3}
   onGenerateBlock:
     m_PersistentCalls:
@@ -410,7 +410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6286826469854103719
 RectTransform:
   m_ObjectHideFlags: 0
@@ -704,7 +704,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6286826470140419111
 RectTransform:
   m_ObjectHideFlags: 0
@@ -738,7 +738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287b39aa09815d0468deb51b2b286898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalBlocks: 5
+  totalBlocks: 0
   block: {fileID: 5454927235316755591, guid: 61d9b9b18a6e25b45baac56e9e6ad014, type: 3}
   onGenerateBlock:
     m_PersistentCalls:
@@ -812,7 +812,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6286826470216489432
 RectTransform:
   m_ObjectHideFlags: 0
@@ -846,7 +846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287b39aa09815d0468deb51b2b286898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalBlocks: 5
+  totalBlocks: 0
   block: {fileID: 9051080450035738014, guid: 62b1b616560325c4d8bbdf4e6120820c, type: 3}
   onGenerateBlock:
     m_PersistentCalls:
@@ -1055,7 +1055,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6286826470381684396
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1089,7 +1089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287b39aa09815d0468deb51b2b286898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalBlocks: 5
+  totalBlocks: 0
   block: {fileID: 6442472722566844364, guid: 4a8d940a48ffd4a43a7f9a6703bec722, type: 3}
   onGenerateBlock:
     m_PersistentCalls:
@@ -1641,7 +1641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287b39aa09815d0468deb51b2b286898, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalBlocks: 5
+  totalBlocks: 2
   block: {fileID: 1330629756149889433, guid: 91f7729cbc7f6224cb27a11b6a1a9e0e, type: 3}
   onGenerateBlock:
     m_PersistentCalls:
@@ -1884,7 +1884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3077608, g: 0.7169812, b: 0.3379971, a: 1}
+  m_Color: {r: 0.2509804, g: 0.5568628, b: 0.2901961, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
