@@ -16,7 +16,8 @@ public class LevelGenerator : MonoBehaviour
     private bool usedDice;
 
     private List<BlockFactory> emptyFactories;
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    //[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    /*
     void Awake()
     {
         if(Instance)
@@ -29,6 +30,7 @@ public class LevelGenerator : MonoBehaviour
             Instance = this;
         }
     }
+    */
     private void Start()
     {
         emptyFactories = new List<BlockFactory>();

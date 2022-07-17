@@ -53,7 +53,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2359660340718808674, guid: 9b8da1c2b250acc4e83e42fcde505855, type: 3}
       propertyPath: m_Name
-      value: Orange Dome
+      value: Orange Dome Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3409586362182863614, guid: 9b8da1c2b250acc4e83e42fcde505855, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7072272241221446977, guid: 9b8da1c2b250acc4e83e42fcde505855, type: 3}
       propertyPath: m_Materials.Array.data[0]
