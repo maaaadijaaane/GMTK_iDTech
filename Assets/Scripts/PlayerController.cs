@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private static Vector2 movement;
     private float speed = 0.4f;
     // Jumping
-    public static float jumpSpeed= 1.1f;
+    public static float jumpSpeed= 10.1f;
     public static bool doubleJump = false;
     public static int numJumps = 0;
     private GameObject groundCheck;
@@ -39,36 +39,35 @@ public class PlayerController : MonoBehaviour
     {
         if(movement.y == 0) // Moving Horizontal
         {
-            rb.AddForce(movement * speed, ForceMode.VelocityChange);
+            rb.AddForce(movement.y * Vector3.up, ForceMode.Impulse);
         }
-        //rb.AddForce(movement * speed, ForceMode.VelocityChange);
+        rb.AddForce(movement.x * Vector3.right * speed, ForceMode.VelocityChange);
     }
 
-    public static void Move(Vector2 move) // InputAction.CallbackContext context
-    {   
+    public void Move(Vector2 move) // InputAction.CallbackContext context
+    {
         movement = move;
         if(movement.y == 1 && UpdatePlayer.climbing)
         {
             Debug.Log("Climbing");
-            movement = Vector2.up * jumpSpeed;
-            player.rb.AddForce(movement, ForceMode.VelocityChange);
+            movement.y = jumpSpeed;
         }
         else if(movement.y == 1 && onGround)
         {
-            movement = Vector2.up * jumpSpeed;
-            player.rb.AddForce(movement, ForceMode.Impulse);
+            movement.y = jumpSpeed;
             //animator.SetBool("Jump", true);
         }
         else if(movement.y == 1 && doubleJump && numJumps < 1)
         {
             numJumps += 1;
-            movement = Vector2.up * jumpSpeed;
-            player.rb.AddForce(movement, ForceMode.Impulse);
+            movement.y = jumpSpeed;
         }
         else
         {
-            movement = new Vector2(movement.x, 0.0f);
+            movement.y = 0;
         }
+
+        movement.x = move.x;
 
         if(movement.x > 0)
         {
@@ -82,6 +81,5 @@ public class PlayerController : MonoBehaviour
             //facingRight = false;
             player.transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
-
     }
 }
