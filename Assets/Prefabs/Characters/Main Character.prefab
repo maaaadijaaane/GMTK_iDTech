@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 1072478801}
   - component: {fileID: 8164508737145234949}
   - component: {fileID: 1548781447127544516}
+  - component: {fileID: 5013447256078983479}
   m_Layer: 0
   m_Name: Main Character
   m_TagString: Player
@@ -210,3 +211,23 @@ MonoBehaviour:
   maxSpeed: 3
   groundCheckDist: 0.05
   jumpSpeed: 5
+--- !u!95 &5013447256078983479
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8717719964107401753}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 54fb564bd443b4942b18721373b7b34f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
