@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1363893174521086958, guid: 310cd63a107689a4e8486ef5360890c5, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1cb698d34d062a243ab8500522fa81fd, type: 2}
     - target: {fileID: 6652491341985757106, guid: 310cd63a107689a4e8486ef5360890c5, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -61,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6828995870392396410, guid: 310cd63a107689a4e8486ef5360890c5, type: 3}
       propertyPath: m_Name
-      value: Racecar Variant
+      value: Racecar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 310cd63a107689a4e8486ef5360890c5, type: 3}
