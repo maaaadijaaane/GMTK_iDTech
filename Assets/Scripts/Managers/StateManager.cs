@@ -55,6 +55,7 @@ public class StateManager : MonoBehaviour
     void Start()
     {
         findPause = GameObject.Find("PauseMenu");
+        findControls = GameObject.Find("ControlsMenu");
         currScene = SceneManager.GetActiveScene();
         sceneName = currScene.name;
     }
@@ -91,12 +92,12 @@ public class StateManager : MonoBehaviour
         Debug.Log("Set active to false");
         if(!findPause.activeSelf)
         {
-            //findControls.SetActive(false);
+            findControls.SetActive(false);
             findPause.SetActive(true);
         }
         else if(findPause.activeSelf)
         {
-            //findControls.SetActive(true);
+            findControls.SetActive(true);
             findPause.SetActive(false);
         }
 

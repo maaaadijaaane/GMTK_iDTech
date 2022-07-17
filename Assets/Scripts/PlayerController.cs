@@ -28,58 +28,51 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        onGround = false;
+        onGround = true;
         rb = GetComponent<Rigidbody>();
         //animator = GetComponent<Animator>();
         //sprite = GetComponent<SpriteRenderer>();
         movement = new Vector2();
     }
-
     void FixedUpdate()
     {
         if(movement.y == 0) // Moving Horizontal
         {
             rb.AddForce(movement.y * Vector3.up, ForceMode.Impulse);
+            //rb.AddForce(movement * speed, ForceMode.VelocityChange);
         }
         rb.AddForce(movement.x * Vector3.right * speed, ForceMode.VelocityChange);
     }
 
     public void Move(Vector2 move) // InputAction.CallbackContext context
     {
+        rb.velocity = new Vector3(move.x, move.y * jumpSpeed, 0.0f);
         movement = move;
-        if(movement.y == 1 && UpdatePlayer.climbing)
+        Debug.Log(move);
+        Debug.Log("Ground: " + onGround);
+        if(movement.y > 0 && UpdatePlayer.climbing)
         {
             Debug.Log("Climbing");
             movement.y = jumpSpeed;
         }
-        else if(movement.y == 1 && onGround)
+        else if(movement.y > 0 && onGround)
         {
+            Debug.Log("Jumping");
             movement.y = jumpSpeed;
             //animator.SetBool("Jump", true);
         }
-        else if(movement.y == 1 && doubleJump && numJumps < 1)
+        else if(movement.y > 0 && doubleJump && numJumps < 1)
         {
+            Debug.Log("Double Jumo");
             numJumps += 1;
             movement.y = jumpSpeed;
         }
         else
         {
+            Debug.Log("Moving");
             movement.y = 0;
         }
 
         movement.x = move.x;
-
-        if(movement.x > 0)
-        {
-            //animator.SetBool("Run", true);
-            //facingRight = true;
-            player.transform.localRotation = Quaternion.Euler(0, 0, 0);
-        }
-        else if (movement.x < 0)
-        {
-            //animator.SetBool("Run", true);
-            //facingRight = false;
-            player.transform.localRotation = Quaternion.Euler(0, 180, 0);
-        }
     }
 }

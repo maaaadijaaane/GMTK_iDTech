@@ -28,4 +28,8 @@ public class PauseUI : MonoBehaviour
         pauseScreen.SetActive(false);
         Time.timeScale = 1; // Set time back to normal
     }
+    public void ControlsScreen()
+    {
+        StateManager.Instance.SwitchCanvas();
+    }
 }
