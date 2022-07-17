@@ -10,15 +10,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Rigidbody rb;
     private static Vector2 movement;
+<<<<<<< Updated upstream
     private float speed = 0.4f;
     private float maxSpeed = 4f;
     // Jumping
     public static float jumpSpeed= 2f;
+=======
+    public float speed = 0.7f;
+    public float maxSpeed = 3f;
+    public float groundCheckDist = .1f;
+    // Jumping
+    public float jumpSpeed= 3f;
+>>>>>>> Stashed changes
     public static bool doubleJump = false;
     public static int numJumps = 0;
     private GameObject groundCheck;
     public static bool onGround;
-    
+    CapsuleCollider capsule;
+
     //private bool facingRight = true;
     void Awake()
     {
@@ -34,21 +43,37 @@ public class PlayerController : MonoBehaviour
         //animator = GetComponent<Animator>();
         //sprite = GetComponent<SpriteRenderer>();
         movement = new Vector2();
+        capsule = GetComponent<CapsuleCollider>();
     }
     void FixedUpdate()
     {
-        if(movement.y == 0) // Moving Horizontal
+        if(movement.y > 0) // Moving Horizontal
         {
             rb.AddForce(movement.y * Vector3.up, ForceMode.Impulse);
+            movement.y = 0;
             //rb.AddForce(movement * speed, ForceMode.VelocityChange);
         }
         rb.AddForce(movement.x * Vector3.right * speed, ForceMode.VelocityChange);
         rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed), rb.velocity.y);
+
+        RaycastHit hit;
+        bool hasGround = Physics.SphereCast(transform.position + ((0.2f + capsule.radius) * Vector3.up), capsule.radius * .99f, Vector3.down, out hit, 0.2f + groundCheckDist + capsule.radius, LayerMask.GetMask("Ground"), QueryTriggerInteraction.Ignore);
+        Debug.Log(hit.collider);
+        //Debug.DrawRay(transform.position + 0.2f * Vector3.up, Vector3.down * (0.2f + groundCheckDist));
+
+        if (hasGround)
+        {
+            onGround = true;
+        }
+        else
+        {
+            onGround = false;
+        }
     }
 
     public void Move(Vector2 move) // InputAction.CallbackContext context
     {
-        rb.velocity = new Vector3(move.x, move.y * jumpSpeed, 0.0f);
+        //rb.velocity = new Vector3(move.x, move.y * jumpSpeed, 0.0f);
         movement = move;
         if(movement.y > 0 && UpdatePlayer.climbing)
         {
@@ -73,8 +98,8 @@ public class PlayerController : MonoBehaviour
             movement.y = 0;
         }
 
-        movement.x = move.x;
-        rb.velocity = new Vector3(movement.x * speed, movement.y * jumpSpeed, 0.0f);
-        movement = move;
+        //movement.x = move.x;
+        //rb.velocity = new Vector3(movement.x * speed, movement.y * jumpSpeed, 0.0f);
+        //movement = move;
     }
 }
