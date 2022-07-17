@@ -10,22 +10,25 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Rigidbody rb;
     private static Vector2 movement;
-    private float speed = 0.5f;
+    private float speed = 0.4f;
     // Jumping
-    public static float jumpSpeed= 1f;
-    private static bool onGround;
-    private int LayerGround;
+    public static float jumpSpeed= 1.25f;
+    public static bool doubleJump = false;
+    public static int numJumps = 0;
+    private GameObject groundCheck;
+    public static bool onGround;
+    
     //private bool facingRight = true;
     void Awake()
     {
         player = this;
+        groundCheck = GameObject.Find("GroundCollision"); // get ground so we only consider bottom of cube ground collision
     }
 
     // Start is called before the first frame update
     void Start()
     {
         onGround = false;
-        LayerGround = LayerMask.NameToLayer("Ground");
         rb = GetComponent<Rigidbody>();
         //animator = GetComponent<Animator>();
         //sprite = GetComponent<SpriteRenderer>();
@@ -38,6 +41,10 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(movement * speed, ForceMode.VelocityChange);
         }
+        else
+        {
+            rb.AddForce(new Vector2(movement.x, 0.0f) * speed, ForceMode.VelocityChange);
+        }
     }
 
     public static void Move(Vector2 move) // InputAction.CallbackContext context
@@ -49,6 +56,12 @@ public class PlayerController : MonoBehaviour
             movement = Vector2.up * jumpSpeed;
             player.rb.AddForce(movement, ForceMode.Impulse);
             //animator.SetBool("Jump", true);
+        }
+        else if(movement.y == 1 && doubleJump && numJumps < 1)
+        {
+            numJumps += 1;
+            movement = Vector2.up * jumpSpeed;
+            player.rb.AddForce(movement, ForceMode.Impulse);
         }
         else
         {
@@ -68,21 +81,5 @@ public class PlayerController : MonoBehaviour
             player.transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
 
-    }
-    void OnCollisionEnter(Collision collisionInfo)
-    {
-        if(collisionInfo.collider.gameObject.layer == LayerGround)
-        {
-            onGround = true;
-        }
-        Debug.Log("Entered collision:" + onGround);
-    }
-    void OnCollisionExit(Collision collisionInfo)
-    {
-        if(collisionInfo.collider.gameObject.layer == LayerGround)
-        {
-            onGround = false;
-        } 
-        Debug.Log("Exit collision:" + onGround);
     }
 }

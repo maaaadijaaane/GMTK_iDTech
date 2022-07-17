@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class MovableBlock : MonoBehaviour
 {
+    public Ability ability = Ability.None;
     private Rigidbody rb;
     public UnityEvent onBlockDropped;
     public UnityEvent onBlockRotate;
@@ -13,6 +14,8 @@ public class MovableBlock : MonoBehaviour
     AudioSource audioSource;
     private bool droppable = true;
     private int LayerGround;
+    // Ability events
+    //public UnityEvent<Ability> addAbility;
 
 
     void Start()
@@ -23,6 +26,11 @@ public class MovableBlock : MonoBehaviour
         LayerGround = LayerMask.NameToLayer("Ground");
         gameObject.layer = LayerGround;
         gameObject.tag = "Ground";
+        if(ability != Ability.None)
+        {
+            //addAbility?.Invoke(ability);
+            AbilitiesManager.AddAbility(ability);
+        }
     }
 
     public void Moving()
