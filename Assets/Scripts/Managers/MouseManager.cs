@@ -51,7 +51,7 @@ public class MouseManager : MonoBehaviour
                     generateBlock = results[0].gameObject.GetComponent<BlockFactory>();
                     if (generateBlock == null)
                         generateBlock = results[0].gameObject.GetComponentInParent<BlockFactory>();
-                    GameManager.TriggerEvent(GameState.Generate);
+                    GameManager.Instance.TriggerEvent(GameState.Generate);
                     totalBlocksAllowed -= 1;
                 }
             }

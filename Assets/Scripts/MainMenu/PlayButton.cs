@@ -22,7 +22,7 @@ public class PlayButton : Interactable
         //Hit the play button, load the next scene
         //need to insert use of Madi's game manager here 
         Debug.Log("Play pressed");
-        GameManager.TriggerEvent(GameState.Play);
+        GameManager.Instance.TriggerEvent(GameState.Play);
     }
 
 

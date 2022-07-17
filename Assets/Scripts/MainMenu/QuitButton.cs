@@ -21,6 +21,6 @@ public class QuitButton : Interactable
     public override void use()
     {
         Debug.Log("Quit pressed");
-        Application.Quit();
+        GameManager.Instance.TriggerEvent(GameState.Quit);
     }
 }

@@ -32,4 +32,8 @@ public class PauseUI : MonoBehaviour
     {
         StateManager.Instance.SwitchCanvas();
     }
+    public void ExitGame()
+    {
+        GameManager.Instance.TriggerEvent(GameState.Quit);
+    }
 }

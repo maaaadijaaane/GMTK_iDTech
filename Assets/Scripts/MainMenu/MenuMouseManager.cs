@@ -29,7 +29,7 @@ public class MenuMouseManager : MonoBehaviour
         
     }
 
-    void OnClick()
+    public void OnClick()
     {
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         RaycastHit hit;

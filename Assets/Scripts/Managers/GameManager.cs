@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class GameManager : MonoBehaviour
     public static GameState State;
     public AudioManager audioManager;
     public static event Action<GameState> OnGameStateChanged;
+    public UnityEvent<int> generateRandomCheckpoint;
+    public int currCheckpoint;
+    public List<int> checkpointNums = new List<int>();
+    private Ability levelAbility;
+    public UnityEvent<int> onGenerateNewLevel;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     void Awake()
@@ -23,7 +29,7 @@ public class GameManager : MonoBehaviour
         //UpdateGameState(GameState.MenuScreen);
     }
     
-    public static void TriggerEvent(GameState newState)
+    public void TriggerEvent(GameState newState)
     {
         State = newState;
         switch(newState){
@@ -38,13 +44,16 @@ public class GameManager : MonoBehaviour
                 //Scene.SwitchCanvas();
                 break;
             case GameState.Play:
-                StateManager.Instance.OpenScene("TemplateScene.tscn"); // Add currentLevel here
+                Instance.RandomizeCheckpoint(4);
                 break;
             case GameState.Building:
                 BuildingTower();
                 break;
             case GameState.Generate:
                 GenerateBlock();
+                break;
+            case GameState.Quit:
+                Application.Quit();
                 break;
         }
         OnGameStateChanged?.Invoke(newState);
@@ -72,7 +81,46 @@ public class GameManager : MonoBehaviour
         movingBlock.onBlockDropped.AddListener(() => BlockGrid.currentGrid.gameObject.SetActive(false));
 
         await Task.Yield();
-        TriggerEvent(GameState.Building);
+        Instance.TriggerEvent(GameState.Building);
+    }
+    public void RandomizeCheckpoint(int range)
+    {
+        string levelName = "TemplateScene";
+        float checkPoint = UnityEngine.Random.Range(1, range);
+        currCheckpoint = (int) checkPoint;
+        /*
+        while(checkpointNums.Contains(currCheckpoint))
+        {
+            checkPoint = UnityEngine.Random.Range(1, range);
+            currCheckpoint = (int) checkPoint;
+        }
+        */
+        checkpointNums.Add(currCheckpoint);
+        if(currCheckpoint == 1 )
+        {
+            levelAbility = Ability.Static;
+            levelName = "Static";
+        }
+        else if(currCheckpoint == 2)
+        {
+            levelAbility = Ability.Sticky;
+            levelName = "Sticky";
+        }
+        if(currCheckpoint == 3)
+        {
+            levelAbility = Ability.Jump;
+            levelName = "Jump";
+        }
+        if(currCheckpoint == 4)
+        {
+            levelAbility = Ability.Ladder;
+            levelName = "Ladder";
+        }
+
+        //checkpoints.Add(levelAbility);
+        Debug.Log("Num: " + currCheckpoint);
+        StateManager.Instance.OpenScene(levelName); // Add currentLevel here
+        onGenerateNewLevel?.Invoke(currCheckpoint);
     }
 }
 
@@ -82,5 +130,6 @@ public enum GameState{
     ControlsScreen,
     Play,
     Generate,
-    Building
+    Building,
+    Quit
 }
