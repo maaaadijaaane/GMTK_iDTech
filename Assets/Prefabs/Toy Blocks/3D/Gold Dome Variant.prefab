@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6856750483835796776
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4399401240465313897, guid: fc13f5d6a353bbb4a94cd806742118e8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b8edef88d6b1d63439e1cdfa467871de, type: 2}
+    - target: {fileID: 5575012653356757165, guid: fc13f5d6a353bbb4a94cd806742118e8, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575012653356757165, guid: fc13f5d6a353bbb4a94cd806742118e8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.9031464
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575012653356757165, guid: fc13f5d6a353bbb4a94cd806742118e8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.49999952
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575012653356757165, guid: fc13f5d6a353bbb4a94cd806742118e8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.6522436
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575012653356757165, guid: fc13f5d6a353bbb4a94cd806742118e8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575012653356757165, guid: fc13f5d6a353bbb4a94cd806742118e8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575012653356757165, guid: fc13f5d6a353bbb4a94cd806742118e8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575012653356757165, guid: fc13f5d6a353bbb4a94cd806742118e8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575012653356757165, guid: fc13f5d6a353bbb4a94cd806742118e8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575012653356757165, guid: fc13f5d6a353bbb4a94cd806742118e8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5575012653356757165, guid: fc13f5d6a353bbb4a94cd806742118e8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9193853102063227722, guid: fc13f5d6a353bbb4a94cd806742118e8, type: 3}
+      propertyPath: m_Name
+      value: Gold Dome
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fc13f5d6a353bbb4a94cd806742118e8, type: 3}
