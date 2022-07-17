@@ -13,9 +13,8 @@ public class Interactable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
 
+    }
 
     public virtual void use()
     {
