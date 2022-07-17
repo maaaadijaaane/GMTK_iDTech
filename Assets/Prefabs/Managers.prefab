@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8801040870741357526}
   - component: {fileID: 8801040870741357521}
   - component: {fileID: 8801040870741357520}
+  - component: {fileID: 8572803363154765444}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -45,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee270e635432774c8db09516bdd81ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 8572803363154765444}
 --- !u!114 &8801040870741357520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,3 +61,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   findPause: {fileID: 0}
   findControls: {fileID: 0}
+--- !u!114 &8572803363154765444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8801040870741357523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b591ea37a28f634d8e127c3dfe0745d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bank: {fileID: 11400000, guid: d269d9a6cd20de841890dfb9cb3f531c, type: 2}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Dice : Interactable
 {
@@ -18,17 +19,17 @@ public class Dice : Interactable
     private Transform side5;
     private Transform side6;
 
-    private bool rolling = false;
+    public bool rolling = false;
     //how long to wait before checking for result, since it starts touching the ground
     private float rollCheckWait = 0.3f;
     private float clock = 0;
 
+    public UnityEvent<int> onDiceFinishRoll;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
-
     }
 
     // Update is called once per frame
@@ -135,12 +136,9 @@ public class Dice : Interactable
                     rollResult = 1;
                     Debug.Log("rolled a 1");
                     break;
-
             }
             clock = 0;
+            onDiceFinishRoll?.Invoke(rollResult);
         }
-
     }
-
-
 }

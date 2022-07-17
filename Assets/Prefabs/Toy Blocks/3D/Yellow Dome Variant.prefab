@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &507695003139936808
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 818977556428778513, guid: 4f882f72fe4907b4bb0f96d2f3e8350e, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 818977556428778513, guid: 4f882f72fe4907b4bb0f96d2f3e8350e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.9031464
+      objectReference: {fileID: 0}
+    - target: {fileID: 818977556428778513, guid: 4f882f72fe4907b4bb0f96d2f3e8350e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.49999952
+      objectReference: {fileID: 0}
+    - target: {fileID: 818977556428778513, guid: 4f882f72fe4907b4bb0f96d2f3e8350e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.6522436
+      objectReference: {fileID: 0}
+    - target: {fileID: 818977556428778513, guid: 4f882f72fe4907b4bb0f96d2f3e8350e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 818977556428778513, guid: 4f882f72fe4907b4bb0f96d2f3e8350e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 818977556428778513, guid: 4f882f72fe4907b4bb0f96d2f3e8350e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 818977556428778513, guid: 4f882f72fe4907b4bb0f96d2f3e8350e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 818977556428778513, guid: 4f882f72fe4907b4bb0f96d2f3e8350e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 818977556428778513, guid: 4f882f72fe4907b4bb0f96d2f3e8350e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 818977556428778513, guid: 4f882f72fe4907b4bb0f96d2f3e8350e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149182398682976246, guid: 4f882f72fe4907b4bb0f96d2f3e8350e, type: 3}
+      propertyPath: m_Name
+      value: Yellow Dome
+      objectReference: {fileID: 0}
+    - target: {fileID: 8867072929193413845, guid: 4f882f72fe4907b4bb0f96d2f3e8350e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1ea1cbd9c225bfd46ba60cb358e46ac1, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4f882f72fe4907b4bb0f96d2f3e8350e, type: 3}

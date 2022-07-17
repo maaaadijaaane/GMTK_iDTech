@@ -6,13 +6,16 @@ using UnityEngine.InputSystem;
 
 public class MovableBlock : MonoBehaviour
 {
-    private Rigidbody rb;
+    public Ability ability = Ability.None;
+    public Rigidbody rb;
     public UnityEvent onBlockDropped;
     public UnityEvent onBlockRotate;
     public Collider blockCollider;
     AudioSource audioSource;
     private bool droppable = true;
     private int LayerGround;
+    // Ability events
+    //public UnityEvent<Ability> addAbility;
 
 
     void Start()
@@ -21,8 +24,12 @@ public class MovableBlock : MonoBehaviour
         blockCollider = GetComponent<Collider>();
         audioSource = GetComponent<AudioSource>();
         LayerGround = LayerMask.NameToLayer("Ground");
-        gameObject.layer = LayerGround;
         gameObject.tag = "Ground";
+        if(ability != Ability.None)
+        {
+            //addAbility?.Invoke(ability);
+            AbilitiesManager.AddAbility(ability);
+        }
     }
 
     public void Moving()
@@ -48,11 +55,16 @@ public class MovableBlock : MonoBehaviour
 
     public void Dropped()
     {
+        if(UpdatePlayer.activeAbility != Ability.Static)
+        {
+            rb.constraints = RigidbodyConstraints.None;
+            rb.constraints = RigidbodyConstraints.FreezePositionZ;
+        }
+        gameObject.layer = LayerGround;
         blockCollider.isTrigger = false;
         rb.isKinematic = false;
         MouseManager.dragging = false;
-        rb.constraints = RigidbodyConstraints.None;
-        rb.constraints = RigidbodyConstraints.FreezePositionZ;
+        gameObject.layer = LayerGround;
         onBlockDropped?.Invoke();
         MouseManager.block = null;
     }
