@@ -293,6 +293,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7047938182257618015, guid: 1c75fa6b99fa5e941989a9fc3a0a6525, type: 3}
   m_PrefabInstance: {fileID: 1903249975}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &163704956 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8389233491026373102, guid: 27346faaf46c72d4694227519166ae9f, type: 3}
+  m_PrefabInstance: {fileID: 1433788279}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &165662599
 GameObject:
   m_ObjectHideFlags: 0
@@ -1300,6 +1305,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1145598181 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4982349891939871377, guid: 27346faaf46c72d4694227519166ae9f, type: 3}
+  m_PrefabInstance: {fileID: 1433788279}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1205944284
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2570,6 +2580,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8801040870741357520, guid: 0486c7261249e254ab3c046d843acf74, type: 3}
+      propertyPath: findPause
+      value: 
+      objectReference: {fileID: 163704956}
+    - target: {fileID: 8801040870741357520, guid: 0486c7261249e254ab3c046d843acf74, type: 3}
+      propertyPath: findControls
+      value: 
+      objectReference: {fileID: 1145598181}
     - target: {fileID: 8801040870741357523, guid: 0486c7261249e254ab3c046d843acf74, type: 3}
       propertyPath: m_Name
       value: Managers

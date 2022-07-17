@@ -8,8 +8,6 @@ public class StateManager : MonoBehaviour
     public static StateManager Instance;
     public GameObject findPause;
     public GameObject findControls;
-    GameObject pause;
-    //PauseController pauseController;
     
     private string sceneName;
     private Scene currScene;
@@ -53,8 +51,8 @@ public class StateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        findPause = GameObject.Find("PausPanel");
-        findControls = GameObject.Find("ControlsPanel");
+        //findPause = GameObject.Find("PausePanel");
+        //findControls = GameObject.Find("ControlPanel");
         currScene = SceneManager.GetActiveScene();
         sceneName = currScene.name;
     }
@@ -93,7 +91,10 @@ public class StateManager : MonoBehaviour
     // Switching between Pause/How to play
     public void SwitchCanvas()
     {
+        //findPause = GameObject.Find("PausePanel");
+        //findControls = GameObject.Find("ControlPanel");
         Debug.Log("Set active to false");
+        Debug.Log("Pause:" + findPause.activeSelf);
         if(!findPause.activeSelf)
         {
             findControls.SetActive(false);

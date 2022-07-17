@@ -52,7 +52,8 @@ public class GameManager : MonoBehaviour
                 //Scene.SwitchCanvas();
                 break;
             case GameState.Play:
-                Instance.RandomizeCheckpoint(4);
+                StateManager.Instance.OpenScene("Level3");
+                //Instance.RandomizeCheckpoint(4);
                 break;
             case GameState.Restart:
                 StateManager.Instance.RestartScene();
