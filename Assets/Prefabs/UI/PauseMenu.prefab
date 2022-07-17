@@ -221,6 +221,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2544451521462558153}
+    - target: {fileID: 8687447209419252609, guid: 937be514ac836f2468119382208996b5, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 937be514ac836f2468119382208996b5, type: 3}
 --- !u!224 &2446045980952585200 stripped
