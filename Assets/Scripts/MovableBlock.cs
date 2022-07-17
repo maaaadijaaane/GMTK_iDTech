@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class MovableBlock : MonoBehaviour
 {
     public Ability ability = Ability.None;
-    private Rigidbody rb;
+    public Rigidbody rb;
     public UnityEvent onBlockDropped;
     public UnityEvent onBlockRotate;
     public Collider blockCollider;
@@ -24,7 +24,6 @@ public class MovableBlock : MonoBehaviour
         blockCollider = GetComponent<Collider>();
         audioSource = GetComponent<AudioSource>();
         LayerGround = LayerMask.NameToLayer("Ground");
-        gameObject.layer = LayerGround;
         gameObject.tag = "Ground";
         if(ability != Ability.None)
         {
@@ -56,24 +55,18 @@ public class MovableBlock : MonoBehaviour
 
     public void Dropped()
     {
-        if(UpdatePlayer.activeAbility == Ability.None)
+        if(UpdatePlayer.activeAbility != Ability.Static)
         {
-            blockCollider.isTrigger = false;
-            rb.isKinematic = false;
-            MouseManager.dragging = false;
             rb.constraints = RigidbodyConstraints.None;
             rb.constraints = RigidbodyConstraints.FreezePositionZ;
-            onBlockDropped?.Invoke();
-            MouseManager.block = null;
         }
-        else if(UpdatePlayer.activeAbility == Ability.Static)
-        {
-            blockCollider.isTrigger = false;
-            rb.isKinematic = false;
-            MouseManager.dragging = false;
-            onBlockDropped?.Invoke();
-            MouseManager.block = null;
-        }
+        gameObject.layer = LayerGround;
+        blockCollider.isTrigger = false;
+        rb.isKinematic = false;
+        MouseManager.dragging = false;
+        gameObject.layer = LayerGround;
+        onBlockDropped?.Invoke();
+        MouseManager.block = null;
     }
 
     public void Rotate()
