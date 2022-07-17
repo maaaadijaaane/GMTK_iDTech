@@ -8,9 +8,6 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private BlockFactory cylinderFactory;
     [SerializeField] private BlockFactory triangleFactory;
     [SerializeField] private BlockFactory domeFactory;
-<<<<<<< Updated upstream
-    
-=======
     [SerializeField] private BlockFactory diceFactory;
     public static int currCheckpoint;
     public static List<int> checkpoints;
@@ -25,7 +22,6 @@ public class LevelGenerator : MonoBehaviour
         GenerateLevel(1);
     }
 
->>>>>>> Stashed changes
     public void GenerateLevel(int diceRoll)
     {
         FactoryConfiguration config = configurations[diceRoll - 1];
@@ -41,8 +37,6 @@ public class LevelGenerator : MonoBehaviour
         else
             emptyFactories.Clear();
     }
-<<<<<<< Updated upstream
-=======
 
     public void RandomizeCheckpoint()
     {
@@ -75,5 +69,4 @@ public class LevelGenerator : MonoBehaviour
     {
         diceFactory.gameObject.SetActive(true);
     }
->>>>>>> Stashed changes
 }
