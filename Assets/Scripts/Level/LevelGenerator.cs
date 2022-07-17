@@ -1,5 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,13 +10,15 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private BlockFactory cylinderFactory;
     [SerializeField] private BlockFactory triangleFactory;
     [SerializeField] private BlockFactory domeFactory;
+<<<<<<< Updated upstream
     
     public void GenerateLevel(int diceRoll)
     {
-        FactoryConfiguration config = configurations[diceRoll];
-        cubeFactory.SetTotal(config.cubes) ;
         cylinderFactory.SetTotal(config.cylinders);
         triangleFactory.SetTotal(config.triangles);
         domeFactory.SetTotal(config.domes);
+<<<<<<< Updated upstream
+=======
     }
+>>>>>>> Stashed changes
 }

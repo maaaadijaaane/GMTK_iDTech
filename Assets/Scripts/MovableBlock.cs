@@ -88,7 +88,7 @@ public class MovableBlock : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (rb.velocity.sqrMagnitude > 0)
+        if (rb.velocity.sqrMagnitude > 0 && collision.gameObject.tag != "Player")
         {
             PlayCollisionSound();
         }
