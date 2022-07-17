@@ -22,7 +22,7 @@ public class EndGoal : MonoBehaviour
         if(other.tag == "Player")
         {
             Debug.Log("game won");
-            SceneManager.LoadScene("EndScene");
+            SceneManager.LoadScene(7);
         }
     }
 
