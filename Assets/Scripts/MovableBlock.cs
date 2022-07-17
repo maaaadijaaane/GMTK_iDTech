@@ -30,6 +30,10 @@ public class MovableBlock : MonoBehaviour
             //addAbility?.Invoke(ability);
             AbilitiesManager.AddAbility(ability);
         }
+        if(ability == Ability.Ladder)
+        {
+            gameObject.GetComponent<BoxCollider>().isTrigger = true;
+        }
     }
 
     public void Moving()
@@ -55,16 +59,15 @@ public class MovableBlock : MonoBehaviour
 
     public void Dropped()
     {
-        if(UpdatePlayer.activeAbility != Ability.Static)
+        if(UpdatePlayer.activeAbility != Ability.Static && UpdatePlayer.activeAbility != Ability.Ladder)
         {
             rb.constraints = RigidbodyConstraints.None;
-            rb.constraints = RigidbodyConstraints.FreezePositionZ;
+            rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
         }
         gameObject.layer = LayerGround;
         blockCollider.isTrigger = false;
         rb.isKinematic = false;
         MouseManager.dragging = false;
-        gameObject.layer = LayerGround;
         onBlockDropped?.Invoke();
         MouseManager.block = null;
     }
@@ -82,7 +85,7 @@ public class MovableBlock : MonoBehaviour
         {
             PlayCollisionSound();
         }
-        if(collision.gameObject.layer == LayerGround)
+        if(collision.gameObject.layer == LayerGround || collision.gameObject.tag == "Player")
         {
             rb.mass = 5;
         }
@@ -99,12 +102,21 @@ public class MovableBlock : MonoBehaviour
         {
             droppable = false;
         }
+        if(collider.gameObject.tag == "Player" && ability == Ability.Ladder)
+        {
+            UpdatePlayer.climbing = true;
+        }
     }
+
     private void OnTriggerExit(Collider collider)
     {
         if(collider.gameObject.layer == LayerGround)
         {
             droppable = true;
+        }
+        if(collider.gameObject.tag == "Player" && ability == Ability.Ladder)
+        {
+            UpdatePlayer.climbing = false;
         }
     }
 }
