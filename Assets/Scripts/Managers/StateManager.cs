@@ -17,14 +17,13 @@ public class StateManager : MonoBehaviour
     private GameObject openCanvas;
 
     // Subscribe different scenes/UI to different events
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    //[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     void Awake()
     {
         Instance = this;
         //GameManager.OnGameStateChanged += GameManagerOnGameStateChanged;
-        DontDestroyOnLoad(gameObject); 
+        //DontDestroyOnLoad(gameObject); 
     }
-
     void OnDestroy()
     {
         //GameManager.OnGameStateChanged -= GameManagerOnGameStateChanged;
@@ -54,8 +53,8 @@ public class StateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        findPause = GameObject.Find("PauseMenu");
-        findControls = GameObject.Find("ControlsMenu");
+        findPause = GameObject.Find("PausPanel");
+        findControls = GameObject.Find("ControlsPanel");
         currScene = SceneManager.GetActiveScene();
         sceneName = currScene.name;
     }

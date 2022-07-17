@@ -13,7 +13,8 @@ public class UpdatePlayer : MonoBehaviour
     private GameObject parentSticky = null;
     private GameObject childSticky = null;
     private int LayerGround;
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    //[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    /*
     void Awake()
     {
         if(Instance)
@@ -26,6 +27,7 @@ public class UpdatePlayer : MonoBehaviour
             Instance = this;
         }
     }
+    */
     void Start()
     {
         LayerGround = LayerMask.NameToLayer("Ground");

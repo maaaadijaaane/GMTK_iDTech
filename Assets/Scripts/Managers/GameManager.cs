@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public List<int> checkpointNums = new List<int>();
     private Ability levelAbility;
     public UnityEvent<int> onGenerateNewLevel;
-
+    /*
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     void Awake()
     {
@@ -30,9 +30,10 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
     }
-
+    */
     void Start()
     {
+        Instance = this;
         //UpdateGameState(GameState.MenuScreen);
     }
     

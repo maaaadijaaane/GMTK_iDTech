@@ -16,23 +16,11 @@ public class MouseManager : MonoBehaviour
     public static MovableBlock block;
     public UnityEvent<GameObject> onDragStart;
     public UnityEvent onDragStop;
-
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-    void Awake()
-    {
-        if(Instance)
-        {
-            DestroyImmediate(gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-            Instance = this;
-        }
-    }
+    
     // Start is called before the first frame update
     void Start()
     {
+        Instance = this;
         LayerDraggable = LayerMask.NameToLayer("Draggable");
         LayerGenerate = LayerMask.NameToLayer("Generate");
     }
