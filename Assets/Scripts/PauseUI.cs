@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class PauseUI : MonoBehaviour
 {
+    public static PauseUI Instance;
     public static GameObject pauseScreen; // Need to add through Unity editor
     private static float pausedTimeScale;
     public static bool isPaused = false;
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     void Awake()
     {
+        Instance = this;
+        DontDestroyOnLoad(Instance);
         pauseScreen = GameObject.FindGameObjectsWithTag("Pause")[0];
         pauseScreen.SetActive(false);
     }

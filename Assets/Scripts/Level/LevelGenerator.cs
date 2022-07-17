@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 public class LevelGenerator : MonoBehaviour
 {
+    private LevelGenerator Instance;
     public List<FactoryConfiguration> configurations;
     [SerializeField] private BlockFactory cubeFactory;
     [SerializeField] private BlockFactory cylinderFactory;
@@ -15,7 +16,19 @@ public class LevelGenerator : MonoBehaviour
     private bool usedDice;
 
     private List<BlockFactory> emptyFactories;
-
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    void Awake()
+    {
+        if(Instance)
+        {
+            DestroyImmediate(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+            Instance = this;
+        }
+    }
     private void Start()
     {
         emptyFactories = new List<BlockFactory>();

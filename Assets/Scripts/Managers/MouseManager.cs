@@ -20,8 +20,15 @@ public class MouseManager : MonoBehaviour
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     void Awake()
     {
-        Instance = this;
-        DontDestroyOnLoad(Instance);
+        if(Instance)
+        {
+            DestroyImmediate(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+            Instance = this;
+        }
     }
     // Start is called before the first frame update
     void Start()

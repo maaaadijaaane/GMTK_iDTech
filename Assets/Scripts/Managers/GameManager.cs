@@ -20,8 +20,15 @@ public class GameManager : MonoBehaviour
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     void Awake()
     {
-        Instance = this;
-        DontDestroyOnLoad(Instance);
+        if(Instance)
+        {
+            DestroyImmediate(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+            Instance = this;
+        }
     }
 
     void Start()
@@ -45,6 +52,9 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Play:
                 Instance.RandomizeCheckpoint(4);
+                break;
+            case GameState.Restart:
+                StateManager.Instance.RestartScene();
                 break;
             case GameState.Building:
                 BuildingTower();
@@ -129,6 +139,7 @@ public enum GameState{
     PauseScreen,
     ControlsScreen,
     Play,
+    Restart,
     Generate,
     Building,
     Quit
