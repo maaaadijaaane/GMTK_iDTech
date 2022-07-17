@@ -20,6 +20,7 @@ public class BlockFactory : MonoBehaviour
         droppedBlocks = GameObject.Find("DroppedBlocks");
         theseBlocks = new GameObject(block.name + "Objects");
         theseBlocks.transform.SetParent(droppedBlocks.gameObject.transform);
+        SetTotal(totalBlocks);
     }
     public void AddBlock()
     {

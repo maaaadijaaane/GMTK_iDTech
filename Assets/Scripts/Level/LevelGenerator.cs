@@ -34,7 +34,6 @@ public class LevelGenerator : MonoBehaviour
     private void Start()
     {
         emptyFactories = new List<BlockFactory>();
-        GenerateLevel(1);
     }
 
     public void GenerateLevel(int diceRoll)
