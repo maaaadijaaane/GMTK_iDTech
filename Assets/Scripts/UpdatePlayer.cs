@@ -69,5 +69,6 @@ public class UpdatePlayer : MonoBehaviour
     {  
         Vector2 movementVector = context.ReadValue<Vector2>();
         PlayerController.player.Move(movementVector);
+
     }
 }

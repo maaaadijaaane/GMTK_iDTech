@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Rigidbody rb;
     private static Vector2 movement;
+    private Animator animator;
     public float speed = 0.7f;
     public float maxSpeed = 3f;
     public float groundCheckDist = .1f;
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
         //sprite = GetComponent<SpriteRenderer>();
         movement = new Vector2();
         capsule = GetComponent<CapsuleCollider>();
+        animator = GetComponent<Animator>();
     }
     void FixedUpdate()
     {
@@ -67,13 +69,18 @@ public class PlayerController : MonoBehaviour
         {
             onGround = false;
         }
+        animator.SetBool("Grounded", onGround);
+        animator.SetFloat("Walk", Mathf.Abs(rb.velocity.x));
     }
 
     public void Move(Vector2 move) // InputAction.CallbackContext context
     {
         //rb.velocity = new Vector3(move.x, move.y * jumpSpeed, 0.0f);
         movement = move;
-        if(movement.y > 0 && UpdatePlayer.climbing)
+        if (movement.x > 0)
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+
+        if (movement.y > 0 && UpdatePlayer.climbing)
         {
             Debug.Log("Climbing");
             movement.y = jumpSpeed;
@@ -92,7 +99,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Moving");
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
             movement.y = 0;
         }
 

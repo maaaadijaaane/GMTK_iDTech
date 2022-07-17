@@ -325,6 +325,111 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: RobotIdle_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a37b78beea71ed439578f0a4ca98c46
+      internalID: 1285847006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotIdle_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6441cdb1b8f80744d90fcca79aca60ce
+      internalID: 1390558213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotIdle_11
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc8b4edefff0ed34d9b37db573fd9231
+      internalID: 108204304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotIdle_12
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c3928c5bfa482b4ba9e7ce50b7d2b6a
+      internalID: 2098116444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotIdle_13
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31a9615773d1f7a4bb5a66f8cba59bfc
+      internalID: -852707453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -336,15 +441,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      RobotIdle_10: 1390558213
       RobotIdle_6: 158647237
       RobotIdle_8: -1736533306
       RobotIdle_1: -381171157
       RobotIdle_5: -448366471
+      RobotIdle_9: 1285847006
+      RobotIdle_11: 108204304
       RobotIdle_3: -1838050191
       RobotIdle: 1085985406
       RobotIdle_7: -962376385
       RobotIdle_2: -282919505
+      RobotIdle_12: 2098116444
       RobotIdle_0: -272531423
+      RobotIdle_13: -852707453
       RobotIdle_4: 131024398
   spritePackingTag: 
   pSDRemoveMatte: 0
