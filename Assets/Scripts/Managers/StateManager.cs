@@ -51,7 +51,7 @@ public class StateManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //findPause = GameObject.Find("PausePanel");
+        findPause = GameObject.Find("PauseMenu");
         //findControls = GameObject.Find("ControlPanel");
         currScene = SceneManager.GetActiveScene();
         sceneName = currScene.name;
