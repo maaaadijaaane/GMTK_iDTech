@@ -37,14 +37,27 @@ public class MouseManager : MonoBehaviour
         LayerGenerate = LayerMask.NameToLayer("Generate");
     }
 
+    public void OnClick()
+    {
+        RaycastHit hit;
+        Vector3 mousePos = Mouse.current.position.ReadValue();
+        Ray ray = Camera.main.ScreenPointToRay(mousePos);
+
+        if (Physics.Raycast(ray,out hit,100.0f))
+        {
+            if (hit.collider != null && hit.collider.tag == "Click Interact")
+            {
+                MouseInteractObject obj = hit.collider.GetComponent<MouseInteractObject>();
+                obj.ClickInteract(PlayerController.player.gameObject);
+            }
+        }
+    }
+
     public void OnDragClick()
     {
         if(dragging == false)
         {
-            RaycastHit hit; 
             Vector3 mousePos = Mouse.current.position.ReadValue(); 
-            Ray ray = Camera.main.ScreenPointToRay(mousePos);
-
             PointerEventData data = new PointerEventData(EventSystem.current);
             data.position = mousePos;
             List<RaycastResult> results = new List<RaycastResult>();
