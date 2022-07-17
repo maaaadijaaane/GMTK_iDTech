@@ -43,7 +43,7 @@ public class MenuMouseManager : MonoBehaviour
 
             else
             {
-                Debug.Log(hit.collider.transform.name);
+                //Debug.Log(hit.collider.transform.name);
             }
         }
         

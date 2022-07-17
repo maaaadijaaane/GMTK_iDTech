@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class QuitButton : Interactable
+public class BouncyBall : Interactable
 {
+
+    Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = this.gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -17,10 +19,9 @@ public class QuitButton : Interactable
         
     }
 
-
     public override void use()
     {
-        Debug.Log("Quit pressed");
-        Application.Quit();
+        Debug.Log("bouncy ball clicked");
+        anim.Play("bounce");
     }
 }

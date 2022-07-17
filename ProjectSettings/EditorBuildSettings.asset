@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Delete/MenuTesting.unity
+    path: Assets/Scenes/Menu.unity
     guid: a3701e916cad1da4fb903317a41de3bb
   - enabled: 1
     path: Assets/Scenes/Delete/MouseManagerExample.unity
