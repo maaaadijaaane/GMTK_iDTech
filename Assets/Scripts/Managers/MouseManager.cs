@@ -15,6 +15,7 @@ public class MouseManager : MonoBehaviour
     private int LayerGenerate;
     public static MovableBlock block;
     public UnityEvent<GameObject> onDragStart;
+    public UnityEvent onDragStop;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     void Awake()
@@ -61,6 +62,7 @@ public class MouseManager : MonoBehaviour
     {
         dragging = true;
         onDragStart?.Invoke(block.gameObject);
+        block.onBlockDropped.AddListener(() => onDragStop?.Invoke());
     }
 
     public void OnRotate(InputAction.CallbackContext ctx)
