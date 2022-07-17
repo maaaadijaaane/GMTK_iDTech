@@ -63,8 +63,10 @@ public class MouseManager : MonoBehaviour
         onDragStart?.Invoke(block.gameObject);
     }
 
-    public void OnRotate()
+    public void OnRotate(InputAction.CallbackContext ctx)
     {
+        if (!ctx.performed) return;
+
         if(block != null)
         {
             block.Rotate();

@@ -37,23 +37,23 @@ public class BlockGrid : MonoBehaviour
     public Vector3 SnapToGrid(Vector3 inCoords)
     {
         //Vector3 inCoords = obj.transform.position;
-        float x = Mathf.Clamp(Mathf.Round(inCoords.x / gridSize) * gridSize, -gridWidth / 2, gridWidth / 2);
-        float y = Mathf.Clamp(Mathf.Round(inCoords.y / gridSize) * gridSize, -gridHeight / 2, gridHeight / 2);
+        float x = Mathf.Clamp(Mathf.Round(inCoords.x / gridSize) * gridSize, -gridWidth / 2 + gridSize, gridWidth / 2 - gridSize);
+        float y = Mathf.Clamp(Mathf.Round(inCoords.y / gridSize) * gridSize, gridSize, gridHeight - gridSize);
 
         return new Vector3(x, y, inCoords.z);
     }
 
     public void DrawGrid()
     {
-        for (float i = -gridWidth / 2; i < gridWidth / 2; i+= gridSize)
+        for (float i = -gridWidth / 2; i < gridWidth / 2 + gridSize; i+= gridSize)
         {
             GameObject newLine = Instantiate(gridLine, linesParent);
-            newLine.transform.position = new Vector3(i, 0, gridOverlayZCoord);
+            newLine.transform.position = new Vector3(i, gridHeight / 2, gridOverlayZCoord);
             newLine.transform.localScale = new Vector3(1, gridHeight, 1);
             gridLines.Add(newLine);
         }
 
-        for (float i = -gridHeight / 2; i < gridHeight / 2; i += gridSize)
+        for (float i = 0; i < gridHeight + gridSize; i += gridSize)
         {
             GameObject newLine = Instantiate(gridLine, linesParent);
             newLine.transform.Rotate(new Vector3(0, 0, 90));
