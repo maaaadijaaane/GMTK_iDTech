@@ -4,40 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: a3701e916cad1da4fb903317a41de3bb
-  - enabled: 1
-    path: Assets/Scenes/Delete/MouseManagerExample.unity
-    guid: 3e0980ef9a6c0884d8e3455ae24b4439
-  - enabled: 1
-    path: Assets/Scenes/TemplateScene.unity
-    guid: 2ceb84a883291854480f6a6ec155ccfd
-  - enabled: 0
-    path: Assets/Scenes/Delete/Static.unity
-    guid: f75fa018ee2e33d489715f205c777b06
-  - enabled: 0
-    path: Assets/Scenes/Delete/Sticky.unity
-    guid: 004efbfc9746b344a8e50ea5b828f5ab
-  - enabled: 0
-    path: Assets/Scenes/Delete/Ladder.unity
-    guid: 843c1e8517c727d4dba5a6f9f0412284
-  - enabled: 0
-    path: Assets/Scenes/Delete/Jump.unity
-    guid: bfcb44a72a4cbb14281b07bdac5a9f61
-  - enabled: 1
-<<<<<<< Updated upstream
-    path: Assets/Scenes/Levels/Level1.unity
-    guid: 82a23c6e0c7f38543981313cf720cb19
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level2.unity
-    guid: 87d05b7b8d2b3304db84744e924d4b9e
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level3.unity
-    guid: c34f5b1327bcab8478d4baacb3087001
-=======
-    path: Assets/Scenes/EndScene.unity
-    guid: 375e6c4a8a381014e987a1a5c3b9a031
->>>>>>> Stashed changes
+  m_Scenes: []
   m_configObjects: {}
