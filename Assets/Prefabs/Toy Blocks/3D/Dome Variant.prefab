@@ -14,7 +14,7 @@ PrefabInstance:
     - target: {fileID: 6106306334656348607, guid: 2dcd7b0bdf27b4f48a783d6c175d39f4, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: -1550514412580984892, guid: 62a9a509ec6e69e4cb82de6071cec3f2, type: 3}
+      objectReference: {fileID: -7399136301523328422, guid: 62a9a509ec6e69e4cb82de6071cec3f2, type: 3}
     - target: {fileID: 6666326591054416023, guid: 2dcd7b0bdf27b4f48a783d6c175d39f4, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7947376011479559024, guid: 2dcd7b0bdf27b4f48a783d6c175d39f4, type: 3}
       propertyPath: m_Name
-      value: Dome
+      value: Dome Variant
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1776014235180079207, guid: 2dcd7b0bdf27b4f48a783d6c175d39f4, type: 3}

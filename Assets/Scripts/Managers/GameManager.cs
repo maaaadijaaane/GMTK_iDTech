@@ -87,8 +87,8 @@ public class GameManager : MonoBehaviour
         MouseManager.Instance.SetDragging(movingBlock);
 
         //Enable and disable the grid
-        BlockGrid.currentGrid.gameObject.SetActive(true);
-        movingBlock.onBlockDropped.AddListener(() => BlockGrid.currentGrid.gameObject.SetActive(false));
+        BlockGrid.currentGrid.ShowGrid(true);
+        movingBlock.onBlockDropped.AddListener(() => BlockGrid.currentGrid.ShowGrid(false));
 
         await Task.Yield();
         Instance.TriggerEvent(GameState.Building);
