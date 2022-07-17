@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
                 //Scene.SwitchCanvas();
                 break;
             case GameState.Play:
-                // Scene.OpenScene("MainMenu.tscn"); // Add currentLevel here
+                StateManager.Instance.OpenScene("TemplateScene.tscn"); // Add currentLevel here
                 break;
             case GameState.Building:
                 BuildingTower();

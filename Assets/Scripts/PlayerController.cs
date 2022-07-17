@@ -11,9 +11,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private static Vector2 movement;
     private float speed = 0.4f;
-    private float maxSpeed = 2f;
+    private float maxSpeed = 4f;
     // Jumping
-    public static float jumpSpeed= 1.1f;
+    public static float jumpSpeed= 2f;
     public static bool doubleJump = false;
     public static int numJumps = 0;
     private GameObject groundCheck;
@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        onGround = true;
+        onGround = false;
         rb = GetComponent<Rigidbody>();
         //animator = GetComponent<Animator>();
         //sprite = GetComponent<SpriteRenderer>();

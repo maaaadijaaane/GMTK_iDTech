@@ -64,12 +64,19 @@ public class MovableBlock : MonoBehaviour
             rb.constraints = RigidbodyConstraints.None;
             rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
         }
+
         gameObject.layer = LayerGround;
         blockCollider.isTrigger = false;
         rb.isKinematic = false;
         MouseManager.dragging = false;
         onBlockDropped?.Invoke();
         MouseManager.block = null;
+
+        if(UpdatePlayer.activeAbility == Ability.Ladder)
+        {
+            UpdatePlayer.activeAbility = Ability.None;
+            blockCollider.isTrigger = true;
+        }
     }
 
     public void Rotate()
