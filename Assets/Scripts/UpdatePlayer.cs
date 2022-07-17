@@ -8,6 +8,7 @@ public class UpdatePlayer : MonoBehaviour
     public Ability ability = Ability.None;
     public static Ability activeAbility = Ability.None; // Set activeAbility when player chooses to use the Static, Sticky, or Ladder abilities, 
                                                         // turn off until they choose block from factory for ability
+    public static bool climbing = false;
     private GameObject parentSticky = null;
     private GameObject childSticky = null;
     private int LayerGround;
