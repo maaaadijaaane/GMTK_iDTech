@@ -10,10 +10,14 @@ public class AbilitiesManager : MonoBehaviour
         {
             PlayerController.doubleJump = true;
         }
+        else
+        {
+            UpdatePlayer.activeAbility = newAbility;
+        }
     }
 }
 public enum Ability{
-    Stuck,
+    Static,
     Jump,
     Ladder,
     Sticky,

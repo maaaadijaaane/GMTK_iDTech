@@ -56,13 +56,24 @@ public class MovableBlock : MonoBehaviour
 
     public void Dropped()
     {
-        blockCollider.isTrigger = false;
-        rb.isKinematic = false;
-        MouseManager.dragging = false;
-        rb.constraints = RigidbodyConstraints.None;
-        rb.constraints = RigidbodyConstraints.FreezePositionZ;
-        onBlockDropped?.Invoke();
-        MouseManager.block = null;
+        if(UpdatePlayer.activeAbility == Ability.None)
+        {
+            blockCollider.isTrigger = false;
+            rb.isKinematic = false;
+            MouseManager.dragging = false;
+            rb.constraints = RigidbodyConstraints.None;
+            rb.constraints = RigidbodyConstraints.FreezePositionZ;
+            onBlockDropped?.Invoke();
+            MouseManager.block = null;
+        }
+        else if(UpdatePlayer.activeAbility == Ability.Static)
+        {
+            blockCollider.isTrigger = false;
+            rb.isKinematic = false;
+            MouseManager.dragging = false;
+            onBlockDropped?.Invoke();
+            MouseManager.block = null;
+        }
     }
 
     public void Rotate()
