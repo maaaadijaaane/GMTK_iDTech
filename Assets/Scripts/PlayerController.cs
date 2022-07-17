@@ -10,21 +10,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Rigidbody rb;
     private static Vector2 movement;
-<<<<<<< Updated upstream
-    private float speed = 0.4f;
-    private float maxSpeed = 4f;
-    // Jumping
-    public static float jumpSpeed= 2f;
-=======
     public float speed = 0.7f;
     public float maxSpeed = 3f;
     public float groundCheckDist = .1f;
     // Jumping
     public float jumpSpeed= 3f;
->>>>>>> Stashed changes
     public static bool doubleJump = false;
     public static int numJumps = 0;
-    private GameObject groundCheck;
     public static bool onGround;
     CapsuleCollider capsule;
 
@@ -32,7 +24,6 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         player = this;
-        groundCheck = GameObject.Find("GroundCollision"); // get ground so we only consider bottom of cube ground collision
     }
 
     // Start is called before the first frame update
@@ -47,14 +38,15 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
+        float jump = 0;
         if(movement.y > 0) // Moving Horizontal
         {
-            rb.AddForce(movement.y * Vector3.up, ForceMode.Impulse);
+            jump = jumpSpeed;
             movement.y = 0;
             //rb.AddForce(movement * speed, ForceMode.VelocityChange);
         }
         rb.AddForce(movement.x * Vector3.right * speed, ForceMode.VelocityChange);
-        rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed), rb.velocity.y);
+        rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed), jump);
 
         RaycastHit hit;
         bool hasGround = Physics.SphereCast(transform.position + ((0.2f + capsule.radius) * Vector3.up), capsule.radius * .99f, Vector3.down, out hit, 0.2f + groundCheckDist + capsule.radius, LayerMask.GetMask("Ground"), QueryTriggerInteraction.Ignore);
