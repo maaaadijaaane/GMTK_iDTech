@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private static Vector2 movement;
     private float speed = 0.4f;
     // Jumping
-    public static float jumpSpeed= 1.25f;
+    public static float jumpSpeed= 1.1f;
     public static bool doubleJump = false;
     public static int numJumps = 0;
     private GameObject groundCheck;
@@ -37,21 +37,23 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(movement.y == 0)
+        if(movement.y == 0) // Moving Horizontal
         {
             rb.AddForce(movement * speed, ForceMode.VelocityChange);
         }
-        else
-        {
-            rb.AddForce(new Vector2(movement.x, 0.0f) * speed, ForceMode.VelocityChange);
-        }
+        //rb.AddForce(movement * speed, ForceMode.VelocityChange);
     }
 
     public static void Move(Vector2 move) // InputAction.CallbackContext context
     {   
         movement = move;
-
-        if(movement.y == 1 && onGround)
+        if(movement.y == 1 && UpdatePlayer.climbing)
+        {
+            Debug.Log("Climbing");
+            movement = Vector2.up * jumpSpeed;
+            player.rb.AddForce(movement, ForceMode.VelocityChange);
+        }
+        else if(movement.y == 1 && onGround)
         {
             movement = Vector2.up * jumpSpeed;
             player.rb.AddForce(movement, ForceMode.Impulse);

@@ -29,11 +29,6 @@ public class MouseManager : MonoBehaviour
         LayerGenerate = LayerMask.NameToLayer("Generate");
     }
 
-    public void OnClick()
-    {
-
-    }
-
     public void OnDragClick()
     {
         if(dragging == false)
