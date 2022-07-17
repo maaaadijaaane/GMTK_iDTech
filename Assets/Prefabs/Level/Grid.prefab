@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1245133725
 Transform:
   m_ObjectHideFlags: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
   gridOverlayZCoord: 0
   gridSize: 0.5
   gridLine: {fileID: 3771577999999002181, guid: 8b582b25df159c849bc93d4508a03e3f, type: 3}
-  gridWidth: 40
-  gridHeight: 40
+  gridWidth: 12
+  gridHeight: 15
   allowedOverlap: 0
   linesParent: {fileID: 1245133725}

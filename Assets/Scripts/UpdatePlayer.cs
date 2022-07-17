@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class UpdatePlayer : MonoBehaviour
 {
+    public static UpdatePlayer Instance;
     public Ability ability = Ability.None;
     public static Ability activeAbility = Ability.None; // Set activeAbility when player chooses to use the Static, Sticky, or Ladder abilities, 
                                                         // turn off until they choose block from factory for ability
@@ -12,6 +13,19 @@ public class UpdatePlayer : MonoBehaviour
     private GameObject parentSticky = null;
     private GameObject childSticky = null;
     private int LayerGround;
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    void Awake()
+    {
+        if(Instance)
+        {
+            DestroyImmediate(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+            Instance = this;
+        }
+    }
     void Start()
     {
         LayerGround = LayerMask.NameToLayer("Ground");

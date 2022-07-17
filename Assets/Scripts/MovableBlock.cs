@@ -25,15 +25,17 @@ public class MovableBlock : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         LayerGround = LayerMask.NameToLayer("Ground");
         gameObject.tag = "Ground";
-        if(ability != Ability.None)
+        if(ability != Ability.None && ability!= Ability.Ladder)
         {
             //addAbility?.Invoke(ability);
             AbilitiesManager.AddAbility(ability);
         }
+        /*
         if(ability == Ability.Ladder)
         {
             gameObject.GetComponent<BoxCollider>().isTrigger = true;
         }
+        */
     }
 
     public void Moving()
@@ -59,6 +61,11 @@ public class MovableBlock : MonoBehaviour
 
     public void Dropped()
     {
+        if(ability == Ability.Ladder)
+        {
+            AbilitiesManager.AddAbility(ability);
+        }
+        
         if(UpdatePlayer.activeAbility != Ability.Static && UpdatePlayer.activeAbility != Ability.Ladder)
         {
             rb.constraints = RigidbodyConstraints.None;
@@ -74,6 +81,7 @@ public class MovableBlock : MonoBehaviour
 
         if(UpdatePlayer.activeAbility == Ability.Ladder)
         {
+            Debug.Log("Ladder");
             UpdatePlayer.activeAbility = Ability.None;
             blockCollider.isTrigger = true;
         }
@@ -88,7 +96,7 @@ public class MovableBlock : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (rb.velocity.sqrMagnitude > 0)
+        if (rb.velocity.sqrMagnitude > 0 && collision.gameObject.tag != "Player")
         {
             PlayCollisionSound();
         }

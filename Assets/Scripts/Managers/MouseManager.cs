@@ -20,8 +20,15 @@ public class MouseManager : MonoBehaviour
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     void Awake()
     {
-        Instance = this;
-        DontDestroyOnLoad(Instance);
+        if(Instance)
+        {
+            DestroyImmediate(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+            Instance = this;
+        }
     }
     // Start is called before the first frame update
     void Start()
@@ -43,7 +50,7 @@ public class MouseManager : MonoBehaviour
             List<RaycastResult> results = new List<RaycastResult>();
             EventSystem.current.RaycastAll(data, results);
 
-            //if (Physics.Raycast(ray,out hit,100.0f)) 
+            //if (Physics.Raycast(ray,out hit,100.0f))
             if (results.Count > 0)
             {
                 if(results[0].gameObject.layer == LayerGenerate)

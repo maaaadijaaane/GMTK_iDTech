@@ -70,6 +70,11 @@ public class StateManager : MonoBehaviour
         sceneName = currScene.name;
         Time.timeScale = 1;
     }
+    public void RestartScene()
+    {
+        prevScene = currScene;
+        SceneManager.LoadScene(currScene.name);
+    }
 
     public void OpenStartMenu()
     {

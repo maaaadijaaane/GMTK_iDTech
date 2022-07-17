@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 
 public class BlockFactory : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class BlockFactory : MonoBehaviour
     public static List<GameObject> blocks = new List<GameObject>();
     private GameObject droppedBlocks;
     private GameObject theseBlocks;
+    public UnityEvent<BlockFactory, GameObject> onGenerateBlock;
     [SerializeField] private TextMeshProUGUI amountLabel;
 
     void Start()
@@ -27,6 +29,7 @@ public class BlockFactory : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezeAll;
         blocks.Add(newBlock);
         SetTotal(totalBlocks - 1);
+        onGenerateBlock.Invoke(this, newBlock);
     }
 
     public void SetTotal(int amount)

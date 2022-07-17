@@ -29,11 +29,13 @@ public class Dice : Interactable
 
     public AudioClip diceHit;
     public AudioClip diceGround;
+    AudioSource source;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -154,6 +156,6 @@ public class Dice : Interactable
         else
             impactSound = diceGround;
 
-        AudioSource.PlayClipAtPoint(impactSound, Camera.main.transform.position);
+        source.PlayOneShot(impactSound);
     }
 }
