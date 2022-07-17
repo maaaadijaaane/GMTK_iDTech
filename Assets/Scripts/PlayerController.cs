@@ -38,18 +38,24 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        float jump = 0;
+        float velocityY = rb.velocity.y;
         if(movement.y > 0) // Moving Horizontal
         {
-            jump = jumpSpeed;
+            velocityY = jumpSpeed;
             movement.y = 0;
             //rb.AddForce(movement * speed, ForceMode.VelocityChange);
         }
         rb.AddForce(movement.x * Vector3.right * speed, ForceMode.VelocityChange);
-        rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed), jump);
+        rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed), velocityY);
 
         RaycastHit hit;
         bool hasGround = Physics.SphereCast(transform.position + ((0.2f + capsule.radius) * Vector3.up), capsule.radius * .99f, Vector3.down, out hit, 0.2f + groundCheckDist + capsule.radius, LayerMask.GetMask("Ground"), QueryTriggerInteraction.Ignore);
+        //Debug.Log(hit.normal.y);
+        if (hit.normal.y < 0.1)
+        {
+            hasGround = false;
+        }
+
         Debug.Log(hit.collider);
         //Debug.DrawRay(transform.position + 0.2f * Vector3.up, Vector3.down * (0.2f + groundCheckDist));
 
