@@ -7,6 +7,7 @@ public class Dice : Interactable
 {
     //how hard the dice are being rolled
     public float rollForce;
+    public float rollTorque;
     //outcome of roll
     public int rollResult;
 
@@ -26,10 +27,13 @@ public class Dice : Interactable
 
     public UnityEvent<int> onDiceFinishRoll;
 
+    private AudioClip diceHit;
+    private AudioClip diceGround;
+
     // Start is called before the first frame update
     void Start()
     {
-        rb = this.GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -59,7 +63,7 @@ public class Dice : Interactable
     public void roll()
     {
         rb.AddForce(0, rollForce, 0, ForceMode.Impulse);
-        rb.AddTorque(Random.Range(-rollForce*2, rollForce*2), 0, Random.Range(-rollForce*2, rollForce*2));
+        rb.AddTorque(Random.Range(-rollTorque*2, rollTorque * 2), 0, Random.Range(-rollTorque * 2, rollTorque * 2));
         rolling = true;
     }
 
@@ -140,5 +144,16 @@ public class Dice : Interactable
             clock = 0;
             onDiceFinishRoll?.Invoke(rollResult);
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        AudioClip impactSound;
+        if (collision.gameObject.tag == "Dice" && transform.position.z < collision.transform.position.z)
+            impactSound = diceHit;
+        else
+            impactSound = diceGround;
+
+        AudioSource.PlayClipAtPoint(impactSound, Camera.main.transform.position);
     }
 }

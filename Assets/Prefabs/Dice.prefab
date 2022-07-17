@@ -403,7 +403,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6768678975224524296}
-  m_Mesh: {fileID: -5495902117074765545, guid: cf81c868bf571e443ba9afc88e0d46af, type: 3}
+  m_Mesh: {fileID: -5495902117074765545, guid: 4d7ecea98fd788140ab24f44e54bee98, type: 3}
 --- !u!23 &7593928456009337507
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -488,6 +488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rollForce: 2
+  rollTorque: 0
   rollResult: 0
   rolling: 0
   onDiceFinishRoll:

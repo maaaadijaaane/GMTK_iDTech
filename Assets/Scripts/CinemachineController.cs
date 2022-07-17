@@ -15,11 +15,11 @@ public class CinemachineController : MonoBehaviour
         if(zoomOutCamera == null)
         {
             zoomOutCamera = GameObject.Find("ZoomOutCam").GetComponent<CinemachineVirtualCamera>();
-            playerGroup = zoomOutCamera.Follow.transform.GetComponent<CinemachineTargetGroup>();
-            zoomOutCamera.enabled = false;
-
             Debug.LogWarning("A cinemachine camera was not assigned. The first Virtual Camera named ZoomOutCam has been used instead. " + zoomOutCamera.name);
         }
+
+        playerGroup = zoomOutCamera.Follow.transform.GetComponent<CinemachineTargetGroup>();
+        zoomOutCamera.enabled = false;
     }
 
     public void DragEnd()
