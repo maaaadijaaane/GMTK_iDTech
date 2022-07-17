@@ -11,8 +11,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private static Vector2 movement;
     private float speed = 0.4f;
+    private float maxSpeed = 2f;
     // Jumping
-    public static float jumpSpeed= 10.1f;
+    public static float jumpSpeed= 1.1f;
     public static bool doubleJump = false;
     public static int numJumps = 0;
     private GameObject groundCheck;
@@ -42,14 +43,13 @@ public class PlayerController : MonoBehaviour
             //rb.AddForce(movement * speed, ForceMode.VelocityChange);
         }
         rb.AddForce(movement.x * Vector3.right * speed, ForceMode.VelocityChange);
+        rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, -maxSpeed, maxSpeed), rb.velocity.y);
     }
 
     public void Move(Vector2 move) // InputAction.CallbackContext context
     {
         rb.velocity = new Vector3(move.x, move.y * jumpSpeed, 0.0f);
         movement = move;
-        Debug.Log(move);
-        Debug.Log("Ground: " + onGround);
         if(movement.y > 0 && UpdatePlayer.climbing)
         {
             Debug.Log("Climbing");
@@ -74,5 +74,7 @@ public class PlayerController : MonoBehaviour
         }
 
         movement.x = move.x;
+        rb.velocity = new Vector3(movement.x * speed, movement.y * jumpSpeed, 0.0f);
+        movement = move;
     }
 }
