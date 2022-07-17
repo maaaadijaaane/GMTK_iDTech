@@ -5,7 +5,7 @@ using TMPro;
 
 public class BlockFactory : MonoBehaviour
 {
-    public int totalBlocks = 5;
+    public int totalBlocks = 0;
     public GameObject block; // Need to store prefab of block you want to generate here
     private GameObject newBlock;
     public static List<GameObject> blocks = new List<GameObject>();

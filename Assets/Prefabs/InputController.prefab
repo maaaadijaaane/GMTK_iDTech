@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6550385896293665149}
   - component: {fileID: 6550385896293665148}
   - component: {fileID: 8181794555176511066}
+  - component: {fileID: 7931664742467180503}
   m_Layer: 0
   m_Name: InputController
   m_TagString: Untagged
@@ -209,3 +210,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: 4
+--- !u!114 &7931664742467180503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6550385896293665147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba40293f2b525304cae1e0a7a5c6c637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomOutCamera: {fileID: 0}
