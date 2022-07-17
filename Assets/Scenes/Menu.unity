@@ -516,9 +516,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildingControls
       objectReference: {fileID: 0}
+    - target: {fileID: 5251241863718407186, guid: cb38e100bd7c14d4e91f0ae35420c7df, type: 3}
+      propertyPath: m_margin.w
+      value: -495.22015
+      objectReference: {fileID: 0}
     - target: {fileID: 5251241863718407187, guid: cb38e100bd7c14d4e91f0ae35420c7df, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 272
+      value: 442
+      objectReference: {fileID: 0}
+    - target: {fileID: 5251241864862752974, guid: cb38e100bd7c14d4e91f0ae35420c7df, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb38e100bd7c14d4e91f0ae35420c7df, type: 3}
@@ -2030,7 +2038,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.0753701, y: 1}
+    m_SensorSize: {x: 1.9394348, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
