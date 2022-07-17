@@ -27,8 +27,8 @@ public class Dice : Interactable
 
     public UnityEvent<int> onDiceFinishRoll;
 
-    private AudioClip diceHit;
-    private AudioClip diceGround;
+    public AudioClip diceHit;
+    public AudioClip diceGround;
 
     // Start is called before the first frame update
     void Start()

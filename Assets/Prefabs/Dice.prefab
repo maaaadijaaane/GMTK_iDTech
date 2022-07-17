@@ -488,9 +488,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rollForce: 2
-  rollTorque: 0
+  rollTorque: 2
   rollResult: 0
   rolling: 0
   onDiceFinishRoll:
     m_PersistentCalls:
       m_Calls: []
+  diceHit: {fileID: 8300000, guid: 2bd6673eb830be048acfc54a7eb9e031, type: 3}
+  diceGround: {fileID: 8300000, guid: 137406972bd426741afddb141b12cfca, type: 3}
