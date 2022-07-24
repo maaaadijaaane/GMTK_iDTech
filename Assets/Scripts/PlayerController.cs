@@ -77,8 +77,6 @@ public class PlayerController : MonoBehaviour
     {
         //rb.velocity = new Vector3(move.x, move.y * jumpSpeed, 0.0f);
         movement = move;
-        if (movement.x > 0)
-            gameObject.GetComponent<SpriteRenderer>().flipX = true;
 
         if (movement.y > 0 && UpdatePlayer.climbing)
         {
@@ -99,8 +97,16 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            gameObject.GetComponent<SpriteRenderer>().flipX = false;
             movement.y = 0;
+        }
+
+        if (movement.x < 0)
+        {
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (movement.x > 0)
+        {
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
 
         //movement.x = move.x;

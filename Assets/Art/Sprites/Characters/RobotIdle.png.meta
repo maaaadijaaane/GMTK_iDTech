@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RobotIdle
+      name: RobotJump
       rect:
         serializedVersion: 2
         x: 0
@@ -221,7 +221,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RobotIdle_0
+      name: 5RobotWalk
       rect:
         serializedVersion: 2
         x: 0
@@ -242,7 +242,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RobotIdle_5
+      name: 4RobotWalk
       rect:
         serializedVersion: 2
         x: 64
@@ -263,7 +263,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RobotIdle_6
+      name: 1RobotWalk
       rect:
         serializedVersion: 2
         x: 128
@@ -284,7 +284,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RobotIdle_7
+      name: 2RobotWalk
       rect:
         serializedVersion: 2
         x: 192
@@ -305,7 +305,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RobotIdle_8
+      name: 3RobotWalk
       rect:
         serializedVersion: 2
         x: 256
@@ -326,7 +326,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RobotIdle_9
+      name: 5RobotIdle
       rect:
         serializedVersion: 2
         x: 0
@@ -347,7 +347,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RobotIdle_10
+      name: 4RobotIdle
       rect:
         serializedVersion: 2
         x: 64
@@ -368,7 +368,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RobotIdle_11
+      name: 1RobotIdle_11
       rect:
         serializedVersion: 2
         x: 128
@@ -389,7 +389,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RobotIdle_12
+      name: 2RobotIdle
       rect:
         serializedVersion: 2
         x: 192
@@ -410,7 +410,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RobotIdle_13
+      name: 3RobotIdle
       rect:
         serializedVersion: 2
         x: 256
@@ -441,21 +441,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      RobotIdle_10: 1390558213
-      RobotIdle_6: 158647237
-      RobotIdle_8: -1736533306
+      5RobotIdle: 1285847006
+      1RobotWalk: 158647237
+      4RobotIdle: 1390558213
+      2RobotWalk: -962376385
       RobotIdle_1: -381171157
-      RobotIdle_5: -448366471
-      RobotIdle_9: 1285847006
-      RobotIdle_11: 108204304
+      3RobotWalk: -1736533306
+      1RobotIdle_11: 108204304
       RobotIdle_3: -1838050191
-      RobotIdle: 1085985406
-      RobotIdle_7: -962376385
+      2RobotIdle: 2098116444
+      RobotJump: 1085985406
+      5RobotWalk: -272531423
       RobotIdle_2: -282919505
-      RobotIdle_12: 2098116444
-      RobotIdle_0: -272531423
-      RobotIdle_13: -852707453
+      3RobotIdle: -852707453
       RobotIdle_4: 131024398
+      4RobotWalk: -448366471
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -412,6 +412,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3330099324798255296, guid: 8bd872494c9e9a74991e192479135020, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: dd2ea7c3ce1de754285bcb1d0c7edfb6, type: 3}
     - target: {fileID: 3330099324798255297, guid: 8bd872494c9e9a74991e192479135020, type: 3}
       propertyPath: m_Name
       value: BGM_Level
@@ -869,6 +873,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4780167982709843752, guid: dc8255f88854f4140a309526ec04abb6, type: 3}
   m_PrefabInstance: {fileID: 563286194}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &581875840 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 8717719964107401750, guid: 6ca000ca105feac48b9655868ccecd9e, type: 3}
+  m_PrefabInstance: {fileID: 2522489806025641861}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &686518996 stripped
 GameObject:
@@ -1651,6 +1660,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 30289673314402372, guid: 27346faaf46c72d4694227519166ae9f, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 30289673314402375, guid: 27346faaf46c72d4694227519166ae9f, type: 3}
       propertyPath: m_Name
       value: HUDScreen
@@ -2645,6 +2658,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1548781447127544516, guid: 6ca000ca105feac48b9655868ccecd9e, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 581875840}
+    - target: {fileID: 1548781447127544516, guid: 6ca000ca105feac48b9655868ccecd9e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8717719964107401746, guid: 6ca000ca105feac48b9655868ccecd9e, type: 3}
       propertyPath: m_RootOrder
       value: 13
